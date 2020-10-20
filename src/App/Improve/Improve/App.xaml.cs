@@ -17,7 +17,7 @@ namespace Improve
     {
         protected override Window CreateShell()
         {
-            var mainWin = Container.Resolve<MainWindow>();
+            var mainWin = Container.Resolve<Views.MainWindow>();
             return mainWin;
         }
 
