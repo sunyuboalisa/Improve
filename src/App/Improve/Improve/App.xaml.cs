@@ -1,4 +1,5 @@
-﻿using Prism.Ioc;
+﻿using Improve.LoggerLib;
+using Prism.Ioc;
 using Prism.Unity;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace Improve
     {
         protected override Window CreateShell()
         {
+            Logger.Log(Level.Debug, "Create shell.");
             var mainWin = Container.Resolve<Views.MainWindow>();
             return mainWin;
         }

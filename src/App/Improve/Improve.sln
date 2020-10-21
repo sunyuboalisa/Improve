@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Improve", "Improve\Improve.csproj", "{10E1CE8B-547D-40F9-97B3-B1C01FE7EEEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Improve", "Improve\Improve.csproj", "{10E1CE8B-547D-40F9-97B3-B1C01FE7EEEA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{C7D55DE8-6ADA-4EE4-B71F-E1C9E29863F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Improve.LoggerLib", "Improve.LoggerLib\Improve.LoggerLib.csproj", "{7DAD17B2-F445-4997-9573-C0827C752EB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{10E1CE8B-547D-40F9-97B3-B1C01FE7EEEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10E1CE8B-547D-40F9-97B3-B1C01FE7EEEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10E1CE8B-547D-40F9-97B3-B1C01FE7EEEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DAD17B2-F445-4997-9573-C0827C752EB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DAD17B2-F445-4997-9573-C0827C752EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DAD17B2-F445-4997-9573-C0827C752EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DAD17B2-F445-4997-9573-C0827C752EB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7DAD17B2-F445-4997-9573-C0827C752EB8} = {C7D55DE8-6ADA-4EE4-B71F-E1C9E29863F2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34CAAD8C-309C-4849-994E-AEC3075135CA}
