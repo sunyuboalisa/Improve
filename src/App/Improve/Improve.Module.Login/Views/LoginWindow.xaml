@@ -1,0 +1,94 @@
+﻿<mah:MetroWindow x:Class="Improve.Module.Login.Views.LoginWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"  
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             mc:Ignorable="d" 
+             ResizeBorderThickness="0"
+             WindowStartupLocation="CenterScreen" 
+             ShowTitleBar="False" ShowMaxRestoreButton="False"
+             Title="Login" Width="600" Height="650" 
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <mah:MetroWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <!-- Theme setting -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </mah:MetroWindow.Resources>
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+       
+        
+        <Border Background="{DynamicResource MahApps.Brushes.DataGrid.Selection.Background.Inactive}" Grid.Row="0">
+            <TextBlock Text="Improve" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="45" FontWeight="Bold" FontStyle="Italic" Foreground="#FFFFD2D2"/>
+        </Border>
+        <Grid Grid.Row="1" Background="{DynamicResource MahApps.Brushes.Accent}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Vertical" Height="200" Margin="0,30,0,0">
+                <Viewbox Width="150" Height="150">
+                    <Canvas Width="150" Height="150">
+                        <Path Data="M514.502042 0c14.58176 0 29.9008 1.26976 45.91616 3.80928 16.05632 2.58048 32.07168 7.12704 48.128 13.68064 16.01536 6.5536 31.5392 15.68768 46.44864 27.32032 14.9504 11.6736 28.99968 26.624 42.10688 44.8512 13.84448 18.96448 23.87968 40.46848 30.06464 64.512 6.18496 24.04352 10.77248 46.65344 13.68064 67.7888 2.90816 24.7808 4.38272 49.5616 4.38272 74.3424 5.07904 5.85728 9.09312 12.77952 12.00128 20.80768 2.90816 6.5536 4.9152 14.58176 6.02112 24.04352 1.10592 9.46176-0.16384 19.6608-3.80928 30.59712-3.6864 11.6736-7.65952 20.43904-12.04224 26.25536-4.38272 5.81632-8.3968 10.24-12.04224 13.1072a50.3808 50.3808 0 0 1-14.21312 6.5536 182.14912 182.14912 0 0 1-8.72448 31.744c-2.90816 8.02816-6.5536 16.384-10.93632 25.14944a54.43584 54.43584 0 0 1-15.31904 19.6608c-10.19904 8.76544-19.8656 17.48992-28.95872 26.2144-9.13408 8.76544-14.41792 20.80768-15.85152 36.12672-0.73728 10.19904-1.10592 19.6608-1.10592 28.42624 0 8.72448 1.47456 17.12128 4.38272 25.14944 2.8672 8.02816 8.02816 15.85152 15.27808 23.51104 7.29088 7.65952 17.85856 15.85152 31.744 24.576 17.48992 10.93632 37.6832 19.53792 60.66176 25.72288 22.9376 6.18496 45.056 12.94336 66.1504 20.23424 21.13536 7.29088 39.56736 17.28512 55.21408 30.06464 15.68768 12.73856 25.35424 31.1296 28.99968 55.21408 5.81632 43.008 6.92224 77.824 3.2768 104.448-3.6864 26.58304-8.76544 42.8032-15.31904 48.61952-3.64544 2.90816-12.94336 6.22592-27.8528 9.8304-14.9504 3.6864-33.1776 7.12704-54.6816 10.40384-21.504 3.2768-45.21984 6.38976-71.0656 9.29792a2628.4032 2628.4032 0 0 1-85.1968 8.192c-16.34304 1.55648-35.30752 3.03104-56.89344 4.38272-14.58176 0.94208-30.26944 1.6384-47.02208 2.048a897.10592 897.10592 0 0 1-42.76224 0.65536h-9.17504c-10.24 0-21.2992-0.16384-33.30048-0.6144a1366.26176 1366.26176 0 0 1-47.14496-2.08896c-21.54496-1.35168-40.5504-2.82624-57.01632-4.38272l-6.30784-0.53248a2628.4032 2628.4032 0 0 1-78.72512-7.65952 1838.12096 1838.12096 0 0 1-71.0656-9.29792c-21.504-3.2768-39.7312-6.71744-54.6816-10.36288-14.9504-3.6864-24.24832-6.9632-27.89376-9.8304-6.5536-5.85728-11.6736-22.1184-15.31904-48.70144-3.64544-26.624-2.53952-61.39904 3.2768-104.40704 3.6864-24.04352 13.312-42.47552 28.99968-55.21408a179.07712 179.07712 0 0 1 55.21408-30.06464 1011.3024 1011.3024 0 0 1 66.1504-20.23424 223.80544 223.80544 0 0 0 60.70272-25.68192c13.84448-8.76544 24.41216-16.95744 31.70304-24.61696a68.4032 68.4032 0 0 0 15.27808-23.51104c2.94912-8.02816 4.38272-16.384 4.38272-25.14944 0-8.76544-0.36864-18.2272-1.06496-28.42624-1.47456-15.31904-6.7584-27.36128-15.85152-36.08576a691.4048 691.4048 0 0 0-28.99968-26.2144 54.43584 54.43584 0 0 1-15.31904-19.70176 240.06656 240.06656 0 0 1-10.93632-25.14944 182.14912 182.14912 0 0 1-8.72448-31.70304 50.3808 50.3808 0 0 1-14.21312-6.5536 73.03168 73.03168 0 0 1-12.04224-13.14816c-4.38272-5.81632-8.3968-14.58176-12.04224-26.2144a70.81984 70.81984 0 0 1-3.80928-30.63808c1.10592-9.46176 3.11296-17.48992 6.02112-24.04352 2.90816-8.02816 6.92224-14.9504 12.04224-20.80768 0-24.7808 1.4336-49.5616 4.34176-74.3424 2.94912-21.13536 7.49568-43.74528 13.68064-67.7888a187.26912 187.26912 0 0 1 30.06464-64.512c13.1072-18.2272 27.15648-33.1776 42.10688-44.8512A196.48512 196.48512 0 0 1 401.943962 17.48992c16.05632-6.5536 32.11264-11.10016 48.128-13.68064A292.82304 292.82304 0 0 1 495.988122 0l9.25696 0.2048z"
+                      Fill="#3882F5" Height="150" Stretch="Fill" Width="150"/>
+                    </Canvas>
+                </Viewbox>
+                <TextBlock Text="Login" FontSize="30" 
+                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Orientation="Vertical" Width="300" Height="200" VerticalAlignment="Stretch" Margin="0,-39,0,0" >
+                <StackPanel.Resources>
+                    <Style BasedOn="{StaticResource MahApps.Styles.CheckBox}" TargetType="{x:Type CheckBox}">
+                        <Setter Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <TextBlock Text="Remember"/>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </StackPanel.Resources>
+                <TextBox mah:TextBoxHelper.IsWaitingForData="True"
+                         mah:TextBoxHelper.ClearTextButton="True"
+                         mah:TextBoxHelper.Watermark="User name"
+                         SpellCheck.IsEnabled="True" FontSize="18"/>
+
+                <PasswordBox Margin="0,25,0,0"
+                             mah:TextBoxHelper.IsWaitingForData="True"
+                             mah:TextBoxHelper.ClearTextButton="True"
+                             mah:TextBoxHelper.Watermark="Password"
+                             Style="{StaticResource MahApps.Styles.PasswordBox.Win8}"
+                             FontSize="18"/>
+                <Grid Margin="0 15">
+                    <CheckBox IsChecked="False" IsEnabled="True" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right">
+                     <Hyperlink NavigateUri="">Forget the password</Hyperlink>
+                    </TextBlock>
+                </Grid>
+                
+
+                <Button Style="{DynamicResource MahApps.Styles.Button.Circle}" Height="50" Width="50"
+                        Content="Go" FontSize="20"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Grid.Row="2" FlowDirection="RightToLeft">
+                <TextBlock VerticalAlignment="Center" Margin="10,0" FontSize="18">
+                    <Hyperlink NavigateUri="">Register</Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</mah:MetroWindow>

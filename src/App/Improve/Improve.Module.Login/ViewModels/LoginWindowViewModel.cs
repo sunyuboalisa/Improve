@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Improve.ViewModels
+namespace Improve.Module.Login.ViewModels
 {
     public class LoginWindowViewModel : BindableBase
     {
