@@ -7,7 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Improve", "Improve\Improve.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{C7D55DE8-6ADA-4EE4-B71F-E1C9E29863F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Improve.LoggerLib", "Improve.LoggerLib\Improve.LoggerLib.csproj", "{7DAD17B2-F445-4997-9573-C0827C752EB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Improve.LoggerLib", "Improve.LoggerLib\Improve.LoggerLib.csproj", "{7DAD17B2-F445-4997-9573-C0827C752EB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{783ED2E3-B352-46F1-B2B2-49020EE9892D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Improve.Module.User", "Improve.Module.User\Improve.Module.User.csproj", "{B44F5D40-1246-46E3-8BA4-C0100BFA7ADB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +27,17 @@ Global
 		{7DAD17B2-F445-4997-9573-C0827C752EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DAD17B2-F445-4997-9573-C0827C752EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DAD17B2-F445-4997-9573-C0827C752EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B44F5D40-1246-46E3-8BA4-C0100BFA7ADB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B44F5D40-1246-46E3-8BA4-C0100BFA7ADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B44F5D40-1246-46E3-8BA4-C0100BFA7ADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B44F5D40-1246-46E3-8BA4-C0100BFA7ADB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7DAD17B2-F445-4997-9573-C0827C752EB8} = {C7D55DE8-6ADA-4EE4-B71F-E1C9E29863F2}
+		{B44F5D40-1246-46E3-8BA4-C0100BFA7ADB} = {783ED2E3-B352-46F1-B2B2-49020EE9892D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34CAAD8C-309C-4849-994E-AEC3075135CA}

@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace Improve.ViewModels
 {
-    public class LogonWindowViewModel : BindableBase
+    public class LoginWindowViewModel : BindableBase
     {
-        public LogonWindowViewModel()
+        public LoginWindowViewModel()
         {
 
         }

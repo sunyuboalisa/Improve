@@ -7,13 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MahApps.Metro" Version="2.2.0" />
+    <PackageReference Include="MahApps.Metro" Version="2.3.0" />
     <PackageReference Include="Prism.Unity" Version="8.0.0.1850-pre" />
     <PackageReference Include="Prism.Wpf" Version="8.0.0.1850-pre" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Improve.LoggerLib\Improve.LoggerLib.csproj" />
+    <ProjectReference Include="..\Improve.Module.User\Improve.Module.User.csproj" />
   </ItemGroup>
 
 </Project>

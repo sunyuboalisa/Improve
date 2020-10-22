@@ -19,7 +19,7 @@ namespace Improve
         protected override Window CreateShell()
         {
             Logger.Log(Level.Debug, "Create shell.");
-            var mainWin = Container.Resolve<Views.MainWindow>();
+            var mainWin = Container.Resolve<Improve.Module.User.Views.LoginWindow>();
             return mainWin;
         }
 

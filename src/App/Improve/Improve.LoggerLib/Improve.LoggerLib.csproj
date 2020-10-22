@@ -5,14 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="LoggerConfig\Nlog.config" />
+    <Compile Remove="LoggerConfig\**" />
+    <EmbeddedResource Remove="LoggerConfig\**" />
+    <None Remove="LoggerConfig\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="NLog.config" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="LoggerConfig\NLog.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
