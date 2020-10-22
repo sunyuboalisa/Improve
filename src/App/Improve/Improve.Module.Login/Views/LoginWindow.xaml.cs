@@ -13,10 +13,5 @@ namespace Improve.Module.Login.Views
         {
             InitializeComponent();
         }
-
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            Logger.Log(Level.Debug, $"user:{tbxUserName.Text} login. ");
-        }
     }
 }

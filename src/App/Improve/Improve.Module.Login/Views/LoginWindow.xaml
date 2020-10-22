@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:com="clr-namespace:Improve.Module.Login.Common"
+             xmlns:bv="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
              ResizeBorderThickness="0"
              WindowStartupLocation="CenterScreen" 
@@ -64,14 +66,20 @@
                          mah:TextBoxHelper.IsWaitingForData="True"
                          mah:TextBoxHelper.ClearTextButton="True"
                          mah:TextBoxHelper.Watermark="User name"
-                         SpellCheck.IsEnabled="True" FontSize="18"/>
+                         SpellCheck.IsEnabled="True" FontSize="18"
+                         Text="{Binding UserName,Mode=OneWayToSource}"/>
 
                 <PasswordBox Margin="0,25,0,0" x:Name="pwdBox"
                              mah:TextBoxHelper.IsWaitingForData="True"
                              mah:TextBoxHelper.ClearTextButton="True"
                              mah:TextBoxHelper.Watermark="Password"
                              Style="{StaticResource MahApps.Styles.PasswordBox.Win8}"
-                             FontSize="18"/>
+                             FontSize="18"
+                             com:PasswordBoxHelper.Password="{Binding Password,Mode=OneWayToSource}">
+                    <bv:Interaction.Behaviors>
+                        <com:PasswordBoxBehavior/>
+                    </bv:Interaction.Behaviors>
+                </PasswordBox>
                 <Grid Margin="0 15">
                     <CheckBox IsChecked="False" IsEnabled="True" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right">
@@ -80,7 +88,7 @@
                 </Grid>
                 
                 <Button x:Name="btnLogin" Style="{DynamicResource MahApps.Styles.Button.Circle}" Height="50" Width="50"
-                        Content="Go" FontSize="20" Click="btnLogin_Click"/>
+                        Content="Go" FontSize="20" Command="{Binding LoginCmd}"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" Grid.Row="2" FlowDirection="RightToLeft">
