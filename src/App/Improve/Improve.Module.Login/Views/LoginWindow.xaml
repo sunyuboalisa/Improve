@@ -60,12 +60,13 @@
                         </Setter>
                     </Style>
                 </StackPanel.Resources>
-                <TextBox mah:TextBoxHelper.IsWaitingForData="True"
+                <TextBox x:Name="tbxUserName"
+                         mah:TextBoxHelper.IsWaitingForData="True"
                          mah:TextBoxHelper.ClearTextButton="True"
                          mah:TextBoxHelper.Watermark="User name"
                          SpellCheck.IsEnabled="True" FontSize="18"/>
 
-                <PasswordBox Margin="0,25,0,0"
+                <PasswordBox Margin="0,25,0,0" x:Name="pwdBox"
                              mah:TextBoxHelper.IsWaitingForData="True"
                              mah:TextBoxHelper.ClearTextButton="True"
                              mah:TextBoxHelper.Watermark="Password"
@@ -78,9 +79,8 @@
                     </TextBlock>
                 </Grid>
                 
-
-                <Button Style="{DynamicResource MahApps.Styles.Button.Circle}" Height="50" Width="50"
-                        Content="Go" FontSize="20"/>
+                <Button x:Name="btnLogin" Style="{DynamicResource MahApps.Styles.Button.Circle}" Height="50" Width="50"
+                        Content="Go" FontSize="20" Click="btnLogin_Click"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" Grid.Row="2" FlowDirection="RightToLeft">

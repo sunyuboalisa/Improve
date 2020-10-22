@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using Improve.LoggerLib;
+using MahApps.Metro.Controls;
 using System.Windows;
 
 namespace Improve.Module.Login.Views
@@ -11,6 +12,11 @@ namespace Improve.Module.Login.Views
         public LoginWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            Logger.Log(Level.Debug, $"user:{tbxUserName.Text} login. ");
         }
     }
 }
