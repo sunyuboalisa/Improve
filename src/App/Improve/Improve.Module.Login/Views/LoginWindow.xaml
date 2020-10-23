@@ -13,23 +13,12 @@
              ShowTitleBar="False" ShowMaxRestoreButton="False"
              Title="Login" Width="600" Height="650" 
              prism:ViewModelLocator.AutoWireViewModel="True">
-    <mah:MetroWindow.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
-                <!-- Theme setting -->
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </mah:MetroWindow.Resources>
     <Grid Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
        
-        
         <Border Background="{DynamicResource MahApps.Brushes.DataGrid.Selection.Background.Inactive}" Grid.Row="0">
             <TextBlock Text="Improve" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="45" FontWeight="Bold" FontStyle="Italic" Foreground="#FFFFD2D2"/>
         </Border>

@@ -2,14 +2,12 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>Improve.Module.Login</AssemblyName>
+    <AssemblyName>Improve.Module.NavigationBar</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.19" />
     <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Improve.LoggerLib\Improve.LoggerLib.csproj" />
-    <ProjectReference Include="..\Improve.MahAppsUI\Improve.MahAppsUI.csproj" />
   </ItemGroup>
 </Project>

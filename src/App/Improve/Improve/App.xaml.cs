@@ -1,4 +1,5 @@
 ﻿using Improve.LoggerLib;
+using Improve.Views;
 using Prism.Ioc;
 using Prism.Unity;
 using System;
@@ -19,8 +20,7 @@ namespace Improve
         protected override Window CreateShell()
         {
             Logger.Log(Level.Debug, "Show Login window.");
-            var mainWin = Container.Resolve<Module.Login.Views.LoginWindow>();
-
+            var mainWin = Container.Resolve<MainWindow>();
             return mainWin;
         }
 

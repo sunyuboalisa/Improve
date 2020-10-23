@@ -1,8 +1,12 @@
-﻿using Prism.Commands;
+﻿using Improve.LoggerLib;
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
+using Prism.Commands;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 
 namespace Improve.Module.Login.ViewModels
 {
@@ -35,11 +39,11 @@ namespace Improve.Module.Login.ViewModels
         {
             if (VerifyUser(UserName, Password))
             {
-
+                Login();
             }
             else
             {
-                
+                ShowErrorMsg();
             }
         }
 
@@ -47,6 +51,18 @@ namespace Improve.Module.Login.ViewModels
         {
             bool res = false;
             return res;
+        }
+
+        void Login()
+        {
+            Logger.Log(Level.Debug, $"{UserName} is logining.");
+
+        }
+
+        void ShowErrorMsg()
+        {
+            var win = Application.Current.MainWindow as MetroWindow;
+            win.ShowMessageAsync("Error", "用户名或者密码错误");
         }
     }
 }
