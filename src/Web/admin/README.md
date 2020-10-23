@@ -1,4 +1,4 @@
-# improve_admin
+# admin
 
 ## Project setup
 ```
