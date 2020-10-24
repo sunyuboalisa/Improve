@@ -9,7 +9,8 @@ namespace Improve.Module.NavigationBar
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
-
+            var regionManager = containerProvider.Resolve<IRegionManager>();
+            regionManager.RegisterViewWithRegion(Improve.Infrastructure.Contants.RegionNames.NavigationBarRegion, typeof(NavigationBarDefault));
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

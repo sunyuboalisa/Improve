@@ -8,4 +8,10 @@
     <PackageReference Include="MahApps.Metro" Version="2.3.0" />
     <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Improve.Infrastructure\Improve.Infrastructure.csproj" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetDir)$(TargetName)*$(TargetExt)&quot; &quot;$(SolutionDir)$(SolutionName)\bin\Debug\netcoreapp3.1\Modules\&quot; /Y /S" />
+  </Target>
 </Project>

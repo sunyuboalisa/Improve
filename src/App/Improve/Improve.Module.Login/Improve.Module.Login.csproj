@@ -12,4 +12,7 @@
     <ProjectReference Include="..\Improve.LoggerLib\Improve.LoggerLib.csproj" />
     <ProjectReference Include="..\Improve.MahAppsUI\Improve.MahAppsUI.csproj" />
   </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetDir)$(TargetName)*$(TargetExt)&quot; &quot;$(SolutionDir)$(SolutionName)\bin\Debug\netcoreapp3.1\Modules\&quot; /Y /S" />
+  </Target>
 </Project>

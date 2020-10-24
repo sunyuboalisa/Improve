@@ -1,6 +1,7 @@
 ﻿using Improve.LoggerLib;
 using Improve.Views;
 using Prism.Ioc;
+using Prism.Modularity;
 using Prism.Unity;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,11 @@ namespace Improve
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             //throw new NotImplementedException();
+        }
+
+        protected override IModuleCatalog CreateModuleCatalog()
+        {
+            return new DirectoryModuleCatalog() { ModulePath = @".\Modules" };
         }
     }
 }
