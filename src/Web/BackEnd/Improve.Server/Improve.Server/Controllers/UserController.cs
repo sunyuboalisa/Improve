@@ -23,18 +23,18 @@ namespace Improve.Server.Controllers
         [HttpGet("{userName}")]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            return await _context.User.ToListAsync();
+            return await _context.Users.ToListAsync();
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateUser(string userName,string password)
+        public async Task<ActionResult> CreateUser([FromBody] User user)
         {
             try
             {
-                _context.User.Add(new Models.User { Name = userName, Password = password });
+                _context.Users.Add(new Models.User { UserName = user.UserName, Password = user.Password });
                 await _context.SaveChangesAsync();
 
-                return CreatedAtAction("CreateUser", new { Name = userName, Password = password });
+                return CreatedAtAction("CreateUser", new { Name = user.UserName, Password = user.Password });
             }
             catch (Exception ex)
             {
@@ -46,7 +46,7 @@ namespace Improve.Server.Controllers
         [HttpPost("{login}")]
         public ActionResult Login(User user)
         {
-            bool isRegisterUser=_context.User.Where(para => para.Name == user.Name && para.Password == user.Password).Any();
+            bool isRegisterUser=_context.Users.Where(para => para.UserName == user.UserName && para.Password == user.Password).Any();
 
             if (isRegisterUser)
             {
