@@ -22,7 +22,7 @@
         </Grid>
         
         <Grid x:Name="ContentPanel" Grid.Column="1">
-            <ContentControl prism:RegionManager.RegionName="{x:Static infConstants:RegionNames.ContentRegion}"/>
+            <!--<ContentControl prism:RegionManager.RegionName="{x:Static infConstants:RegionNames.ContentRegion}"/>-->
         </Grid>
     </Grid>
 </mah:MetroWindow>
