@@ -7,6 +7,7 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:prism="http://prismlibrary.com/" 
         xmlns:infConstants="clr-namespace:Improve.Infrastructure.Contants;assembly=Improve.Infrastructure"
+        xmlns:controls="clr-namespace:Improve.Controls"
         mc:Ignorable="d"
         Height="450" Width="800"
         prism:ViewModelLocator.AutoWireViewModel="True"
@@ -18,7 +19,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid x:Name="NavigateBarPanel" Grid.Column="0">
-            <ContentControl prism:RegionManager.RegionName="{x:Static infConstants:RegionNames.NavigationBarRegion}"/>
+            <controls:NavigationBarDefault/>
         </Grid>
         
         <Grid x:Name="ContentPanel" Grid.Column="1">

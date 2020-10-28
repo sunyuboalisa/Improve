@@ -15,8 +15,6 @@
     <ProjectReference Include="..\Improve.Infrastructure\Improve.Infrastructure.csproj" />
     <ProjectReference Include="..\Improve.LoggerLib\Improve.LoggerLib.csproj" />
     <ProjectReference Include="..\Improve.MahAppsUI\Improve.MahAppsUI.csproj" />
-    <ProjectReference Include="..\Improve.Module.Login\Improve.Module.Login.csproj" />
-    <ProjectReference Include="..\Improve.Module.StudyRoom\Improve.Module.StudyRoom.csproj" />
   </ItemGroup>
 
 </Project>
