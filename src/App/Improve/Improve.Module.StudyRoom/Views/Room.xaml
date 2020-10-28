@@ -4,14 +4,93 @@
              xmlns:local="clr-namespace:Improve.Module.StudyRoom.Views"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300"
+             d:DesignHeight="800" d:DesignWidth="1280"
              xmlns:prism="http://prismlibrary.com/"
-             prism:ViewModelLocator.AutoWireViewModel="True" 
-             Background="Blue">
-    <Grid>
-        <TextBlock Text="{Binding Message}"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center" />
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Improve.MahAppsUI;component/Themes/Generic.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="LargeTileStyle" TargetType="Controls:Tile">
+                <Setter Property="Height" Value="125" />
+                <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+                <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
+                <Setter Property="TitleFontSize" Value="14" />
+                <Setter Property="Width" Value="300" />
+            </Style>
+
+            <Style x:Key="SmallTileStyle" TargetType="Controls:Tile">
+                <Setter Property="Height" Value="125" />
+                <Setter Property="TextOptions.TextFormattingMode" Value="Ideal" />
+                <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
+                <Setter Property="TitleFontSize" Value="10" />
+                <Setter Property="Width" Value="147" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Background="{DynamicResource MahApps.Brushes.Accent4}">
+        <WrapPanel>
+            <Controls:Tile Title="Books"
+                           Margin="3"
+                           Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                           Background="Teal"
+                           HorizontalTitleAlignment="Right"
+                           Style="{StaticResource LargeTileStyle}">
+                <iconPacks:PackIconModern Width="40"
+                                          Height="40"
+                                          Kind="Book" />
+            </Controls:Tile>
+            <Controls:Tile Title="Videos"
+                           Margin="3"
+                           Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                           Style="{StaticResource LargeTileStyle}">
+                <iconPacks:PackIconFontAwesome Width="40"
+                                               Height="40"
+                                               Kind="FileVideoRegular" />
+            </Controls:Tile> 
+            <Controls:Tile Title="Articles"
+                           Background="DimGray"
+                           Style="{StaticResource LargeTileStyle}">
+                <iconPacks:PackIconModern Width="40"
+                                          Height="40"
+                                          Kind="ArcadeButton" />
+            </Controls:Tile>
+            <Controls:Tile Title="People"
+                           Background="#D2691E"
+                           HorizontalTitleAlignment="Right"
+                           Style="{StaticResource LargeTileStyle}">
+                <iconPacks:PackIconModern Width="40"
+                                          Height="40"
+                                          Kind="PeopleMultiple" />
+            </Controls:Tile>
+            <Controls:Tile Title="Count"
+                           Background="#FF842D"
+                           Count="28"
+                           CountFontSize="42"
+                           HorizontalTitleAlignment="Center"
+                           IsEnabled="False"
+                           Style="{StaticResource SmallTileStyle}"
+                           TitleFontSize="16"
+                           VerticalTitleAlignment="Top" />
+            <Controls:Tile Title="Weather"
+                           Background="#1E90FF"
+                           Style="{StaticResource SmallTileStyle}">
+                <iconPacks:PackIconMaterial Width="40"
+                                            Height="40"
+                                            Kind="WeatherCloudy" />
+            </Controls:Tile>
+            <Controls:Tile Title="Store"
+                           Background="Green"
+                           Style="{StaticResource LargeTileStyle}">
+                <iconPacks:PackIconEntypo Width="40"
+                                          Height="40"
+                                          Kind="WindowsStore" />
+            </Controls:Tile>
+        </WrapPanel>
     </Grid>
 </UserControl>
