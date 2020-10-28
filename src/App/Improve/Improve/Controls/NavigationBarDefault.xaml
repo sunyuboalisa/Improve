@@ -9,6 +9,7 @@
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:infConstants="clr-namespace:Improve.Infrastructure.Contants;assembly=Improve.Infrastructure"
              prism:ViewModelLocator.AutoWireViewModel="True">
     <UserControl.Resources>
         <!--  This is the template for all menu items. In this sample we use the glyph items.  -->
@@ -134,19 +135,20 @@
                                            Text="{Binding Label}" />
                         </Border>
                         <mah:TransitioningContentControl Grid.Row="1"
-                                                             Content="{Binding}"
-                                                             RestartTransitionOnContentChange="True"
-                                                             Transition="Default">
-                            <mah:TransitioningContentControl.Resources>
+                                                         RestartTransitionOnContentChange="True"
+                                                         Transition="Default">
+                            <ContentControl prism:RegionManager.RegionName="{x:Static infConstants:RegionNames.ContentRegion}"
+                                            Focusable="True"/>
+                            <!--<mah:TransitioningContentControl.Resources>
                                 <DataTemplate DataType="{x:Type mah:HamburgerMenuGlyphItem}">
                                     <Image Source="{Binding Glyph, Mode=OneWay}" />
                                 </DataTemplate>
                                 <DataTemplate DataType="{x:Type mah:HamburgerMenuIconItem}">
-                                    <ContentControl Content="{Binding Tag, Mode=OneWay}"
+                                    <ContentControl prism:RegionManager.RegionName="{x:Static infConstants:RegionNames.ContentRegion}"
                                                         Focusable="True"
                                                         IsTabStop="False" />
                                 </DataTemplate>
-                            </mah:TransitioningContentControl.Resources>
+                            </mah:TransitioningContentControl.Resources>-->
                         </mah:TransitioningContentControl>
                     </Grid>
                 </DataTemplate>

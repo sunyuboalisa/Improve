@@ -26,7 +26,7 @@ namespace Improve.Controls
         private void HamburgerMenu_ItemInvoked(object sender, MahApps.Metro.Controls.HamburgerMenuItemInvokedEventArgs args)
         {
             var hamburgerMenu = sender as MahApps.Metro.Controls.HamburgerMenu;
-            hamburgerMenu.Content = args.InvokedItem;
+            //hamburgerMenu.Content = args.InvokedItem;
 
             if (!args.IsItemOptions && hamburgerMenu.IsPaneOpen)
             {
