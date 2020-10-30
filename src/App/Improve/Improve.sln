@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Improve", "Improve\Improve.csproj", "{10E1CE8B-547D-40F9-97B3-B1C01FE7EEEA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5C40A578-F4C5-4C20-A328-B79ABDF84FFC} = {5C40A578-F4C5-4C20-A328-B79ABDF84FFC}
+		{313FBE80-54FB-4057-B289-A023D8BAE0C8} = {313FBE80-54FB-4057-B289-A023D8BAE0C8}
+		{4FEB16C2-FF2E-4F08-8268-85705B3F1E6E} = {4FEB16C2-FF2E-4F08-8268-85705B3F1E6E}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{C7D55DE8-6ADA-4EE4-B71F-E1C9E29863F2}"
 EndProject
@@ -19,7 +24,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Improve.Module.NavigationBa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Improve.Infrastructure", "Improve.Infrastructure\Improve.Infrastructure.csproj", "{A6EB1497-8132-4113-AB4D-03F13333E827}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Improve.MahAppsUI", "Improve.MahAppsUI\Improve.MahAppsUI.csproj", "{F2B69A63-2650-4ACA-930B-4AAF013B769F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Improve.MahAppsUI", "Improve.MahAppsUI\Improve.MahAppsUI.csproj", "{F2B69A63-2650-4ACA-930B-4AAF013B769F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -6,6 +6,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:converters="clr-namespace:Improve.Module.StudyRoom.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1280"
              xmlns:prism="http://prismlibrary.com/"
@@ -15,6 +16,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/Improve.MahAppsUI;component/Themes/Generic.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            
+            <converters:VisibilityToBoolConverter x:Key="visibilityConverter"/>
             <Style x:Key="LargeTileStyle" TargetType="Controls:Tile">
                 <Setter Property="Height" Value="125" />
                 <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
@@ -34,13 +37,14 @@
     </UserControl.Resources>
 
     <Grid Background="{DynamicResource MahApps.Brushes.Accent4}">
-        <WrapPanel>
+        <WrapPanel Visibility="{Binding TagPanelVidible,Converter={StaticResource BooleanToVisibilityConverter}}">
             <Controls:Tile Title="Books"
                            Margin="3"
                            Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                            Background="Teal"
                            HorizontalTitleAlignment="Right"
-                           Style="{StaticResource LargeTileStyle}">
+                           Style="{StaticResource LargeTileStyle}"
+                           Command="{Binding OpenBooksCmd}">
                 <iconPacks:PackIconModern Width="40"
                                           Height="40"
                                           Kind="Book" />
@@ -91,6 +95,9 @@
                                           Height="40"
                                           Kind="WindowsStore" />
             </Controls:Tile>
+        </WrapPanel>
+        <WrapPanel >
+            <ContentPresenter Content="{Binding ContentView}" Visibility="{Binding ContentPanelVisible,Converter={StaticResource BooleanToVisibilityConverter}}"/>
         </WrapPanel>
     </Grid>
 </UserControl>
