@@ -13,6 +13,13 @@ namespace Improve.Module.StudyRoom.ViewModels
     {
         private object obj = new object();
 
+        private string _currentPdfPath;
+        public string CurrentPdfPath
+        {
+            get { return _currentPdfPath; }
+            set { SetProperty(ref _currentPdfPath, value); }
+        }
+
         public BooksStoreViewModel()
         {
             if (Books==null)
