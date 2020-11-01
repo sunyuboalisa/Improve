@@ -20,13 +20,21 @@ namespace Improve.Module.StudyRoom.ViewModels
             set { SetProperty(ref _currentPdfPath, value); }
         }
 
+        private bool _pdfViewerVisible;
+        public bool PdfViewerVisible
+        {
+            get { return _pdfViewerVisible; }
+            set { SetProperty(ref _pdfViewerVisible, value); }
+        }
+
         public BooksStoreViewModel()
         {
             if (Books==null)
             {
                 Books = new ObservableCollection<Book>();
             }
-            LoadBookThumbnails(@"C:\Users\SunYubo\Documents\TaskFlow\AssignData\mediafiles");
+            LoadBookThumbnails(@"C:\Users\Administrator\Desktop");
+            PdfViewerVisible = false;
         }
 
         public void LoadBookThumbnails(string directory)
@@ -54,5 +62,14 @@ namespace Improve.Module.StudyRoom.ViewModels
         }
 
         public ObservableCollection<Book> Books { get; set; }
+
+        private DelegateCommand _openPdfCmd;
+        public DelegateCommand OpenPdfCmd =>
+            _openPdfCmd ?? (_openPdfCmd = new DelegateCommand(ExecuteOpenBooksCmd));
+
+        void ExecuteOpenBooksCmd()
+        {
+            CurrentPdfPath = "";
+        }
     }
 }

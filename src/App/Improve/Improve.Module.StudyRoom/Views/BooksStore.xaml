@@ -3,42 +3,53 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True"
-             xmlns:controls="clr-namespace:Improve.Module.StudyRoom.UserControls">
+             xmlns:controls="clr-namespace:Improve.Module.StudyRoom.UserControls"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors">
     <UserControl.Resources>
-        <ItemsPanelTemplate x:Key="ListViewItemsPanel">
-            <WrapPanel/>
-        </ItemsPanelTemplate>
-        <DataTemplate x:Key="ListViewItemTemplate">
-            <StackPanel Orientation="Vertical">
-                <Border Width="130" Height="210" BorderThickness="2" BorderBrush="#FF663F3F">
-                    <Border.Background>
-                        <ImageBrush ImageSource="{Binding Thumbnail}"/>
-                    </Border.Background>
-                </Border>
-                <TextBlock HorizontalAlignment="Center" Text="{Binding Name}" 
-                           Foreground="White" FontSize="15" Margin="0 5"
-                           TextTrimming="WordEllipsis"/>
-            </StackPanel>
-        </DataTemplate>
-        <Style x:Key="ListViewItemContainerStyle" TargetType="{x:Type ListViewItem}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type ListViewItem}">
-                        <Border x:Name="bdContainer" BorderBrush="White" Margin="5" Padding="0 5 0 0"
-                                FocusVisualStyle="{x:Null}">
-                            <ContentPresenter/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="bdContainer" Property="Height" Value="250"/>
-                                <Setter TargetName="bdContainer" Property="BorderThickness" Value="1"/>
-                                <Setter TargetName="bdContainer" Property="Margin" Value="0"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Improve.MahAppsUI;component/Themes/Generic.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <ItemsPanelTemplate x:Key="ListViewItemsPanel">
+                <WrapPanel/>
+            </ItemsPanelTemplate>
+            <DataTemplate x:Key="ListViewItemTemplate">
+                <StackPanel Orientation="Vertical">
+                    <Border Width="130" Height="210" BorderThickness="2" BorderBrush="#FF663F3F">
+                        <Border.Background>
+                            <ImageBrush ImageSource="{Binding Thumbnail}"/>
+                        </Border.Background>
+                    </Border>
+                    <TextBlock HorizontalAlignment="Center" Text="{Binding Name}" 
+                               Foreground="White" FontSize="15" Margin="0 5"
+                               TextTrimming="WordEllipsis"/>
+                </StackPanel>
+            </DataTemplate>
+            <Style x:Key="ListViewItemContainerStyle" TargetType="{x:Type ListViewItem}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                            <Border x:Name="bdContainer" BorderBrush="White" Margin="5" Padding="0 5 0 0"
+                                    FocusVisualStyle="{x:Null}" Background="#99C5B5B5">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                        <i:InvokeCommandAction Command="{Binding OpenPdfCmd}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                <ContentPresenter/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter TargetName="bdContainer" Property="Height" Value="250"/>
+                                    <Setter TargetName="bdContainer" Property="BorderThickness" Value="1"/>
+                                    <Setter TargetName="bdContainer" Property="Margin" Value="0"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
         <Border>
@@ -47,7 +58,7 @@
                       ItemsSource="{Binding Books}"
                       Background="Transparent"/>
         </Border>
-        <Border>
+        <Border  Visibility="{Binding PdfViewerVisible,Converter={StaticResource BooleanToVisibilityConverter}}">
             <controls:PdfViewer PdfPath="{Binding CurrentPdfPath}"/>
         </Border>
     </Grid>

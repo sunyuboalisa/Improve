@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using Improve.Module.StudyRoom.ViewModels;
+using System.Windows.Controls;
 
 namespace Improve.Module.StudyRoom.Views
 {
@@ -10,6 +11,11 @@ namespace Improve.Module.StudyRoom.Views
         public BooksStore()
         {
             InitializeComponent();
+        }
+
+        private void bdContainer_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+
         }
     }
 }
