@@ -25,8 +25,7 @@ namespace Improve.Module.StudyRoom.Helpers
             {
                 FileName = ffmpeg,
                 Arguments = cmd,
-                UseShellExecute = false,
-                WindowStyle = ProcessWindowStyle.Hidden,
+                CreateNoWindow=true
             };
 
             var process = new Process
