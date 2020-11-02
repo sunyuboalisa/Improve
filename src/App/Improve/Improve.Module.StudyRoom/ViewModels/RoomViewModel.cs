@@ -104,5 +104,15 @@ namespace Improve.Module.StudyRoom.ViewModels
 
             }
         }
+
+        private DelegateCommand _openVideoLibCmd;
+        public DelegateCommand OpenVideoLibCmd =>
+            _openVideoLibCmd ?? (_openVideoLibCmd = new DelegateCommand(ExecuteOpenVideoLibCmd));
+
+        void ExecuteOpenVideoLibCmd()
+        {
+            ShowFunctionView();
+            ContentView = new VideoLibrary();
+        }
     }
 }

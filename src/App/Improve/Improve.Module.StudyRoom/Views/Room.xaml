@@ -57,7 +57,8 @@
             <Controls:Tile Title="Videos"
                            Margin="3"
                            Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-                           Style="{StaticResource LargeTileStyle}">
+                           Style="{StaticResource LargeTileStyle}"
+                           Command="{Binding OpenVideoLibCmd}">
                 <iconPacks:PackIconFontAwesome Width="40"
                                                Height="40"
                                                Kind="FileVideoRegular" />

@@ -31,7 +31,7 @@ namespace Improve.Module.StudyRoom.ViewModels
         {
             if (Books==null)
             {
-                Books = new ObservableCollection<Book>();
+                Books = new ObservableCollection<BookProvider>();
             }
             LoadBookThumbnails(@"C:\Users\SunYubo\Documents\TaskFlow\AssignData\mediafiles");
             PdfViewerVisible = false;
@@ -54,14 +54,14 @@ namespace Improve.Module.StudyRoom.ViewModels
             {
                 lock (obj)
                 {
-                    var book = new Book();
+                    var book = new BookProvider();
                     book.Init(filePath);
                     Books.Add(book);
                 }
             }
         }
 
-        public ObservableCollection<Book> Books { get; set; }
+        public ObservableCollection<BookProvider> Books { get; set; }
 
         private DelegateCommand _openPdfCmd;
         public DelegateCommand OpenPdfCmd =>
