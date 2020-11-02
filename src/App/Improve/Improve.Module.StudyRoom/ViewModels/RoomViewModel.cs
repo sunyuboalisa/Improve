@@ -72,5 +72,37 @@ namespace Improve.Module.StudyRoom.ViewModels
             ShowFunctionView();
             ContentView = new BooksStore();
         }
+
+        private DelegateCommand _backCmd;
+        public DelegateCommand BackCmd =>
+            _backCmd ?? (_backCmd = new DelegateCommand(ExecuteBackCmd));
+
+        void ExecuteBackCmd()
+        {
+            // 临时代码
+            var vm = ContentView?.DataContext as BooksStoreViewModel;
+            if (ContentView?.Visibility==Visibility.Visible&&vm?.PdfViewerVisible==true)
+            {
+                vm.PdfViewerVisible = false;
+            }
+            else if(ContentView?.Visibility == Visibility.Visible)
+            {
+                ShowTagView();
+                ContentView = null;
+            }
+        }
+
+        private DelegateCommand _forwardCmd;
+        public DelegateCommand ForwardCmd =>
+            _forwardCmd ?? (_forwardCmd = new DelegateCommand(ExecuteForwardCmd));
+
+        void ExecuteForwardCmd()
+        {
+            // 临时代码
+            if (ContentView?.Visibility==Visibility.Visible)
+            {
+
+            }
+        }
     }
 }

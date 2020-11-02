@@ -35,9 +35,14 @@
             </Style>
         </ResourceDictionary>
     </UserControl.Resources>
-
+   
     <Grid Background="{DynamicResource MahApps.Brushes.Accent4}">
-        <WrapPanel Visibility="{Binding TagPanelVidible,Converter={StaticResource BooleanToVisibilityConverter}}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Row="0" Grid.RowSpan="2"
+                   Visibility="{Binding TagPanelVidible,Converter={StaticResource BooleanToVisibilityConverter}}">
             <Controls:Tile Title="Books"
                            Margin="3"
                            Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
@@ -96,8 +101,27 @@
                                           Kind="WindowsStore" />
             </Controls:Tile>
         </WrapPanel>
-        <WrapPanel >
+        <WrapPanel Grid.Row="0" Grid.RowSpan="2">
             <ContentPresenter Content="{Binding ContentView}" Visibility="{Binding ContentPanelVisible,Converter={StaticResource BooleanToVisibilityConverter}}"/>
         </WrapPanel>
+        <Grid Grid.Row="1">
+            <Controls:Flyout x:Name="flyMenu" IsOpen="True"
+                             Background="#FF30323A"
+                             CloseButtonVisibility="Collapsed"
+                             Position="Bottom">
+                <StackPanel SnapsToDevicePixels="True" Orientation="Horizontal">
+                    <Button Style="{DynamicResource MahApps.Styles.Button.Circle}"
+                            Width="50" Height="50" 
+                            Command="{Binding BackCmd}">
+                        <Controls:FontIcon Glyph="&#xE72B;" FontSize="22"/>
+                    </Button>
+                    <Button Style="{DynamicResource MahApps.Styles.Button.Circle}"
+                            Width="50" Height="50"
+                            Command="{Binding ForwardCmd}">
+                        <Controls:FontIcon Glyph="&#xE72A;" FontSize="22"/>
+                    </Button>
+                </StackPanel>
+            </Controls:Flyout>
+        </Grid>
     </Grid>
 </UserControl>
