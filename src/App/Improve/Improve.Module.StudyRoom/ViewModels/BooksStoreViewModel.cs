@@ -33,7 +33,7 @@ namespace Improve.Module.StudyRoom.ViewModels
             {
                 Books = new ObservableCollection<Book>();
             }
-            LoadBookThumbnails(@"C:\Users\Administrator\Desktop");
+            LoadBookThumbnails(@"C:\Users\SunYubo\Documents\TaskFlow\AssignData\mediafiles");
             PdfViewerVisible = false;
         }
 
