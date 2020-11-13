@@ -17,6 +17,7 @@
     <None Remove="Tools\Ffmpeg\swscale-5.dll" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="FFME.Windows" Version="4.2.330" />
     <PackageReference Include="MahApps.Metro" Version="2.3.0" />
     <PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="10.0.19041.1" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.19" />

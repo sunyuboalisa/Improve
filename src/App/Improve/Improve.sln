@@ -26,6 +26,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Improve.Infrastructure", "I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Improve.MahAppsUI", "Improve.MahAppsUI\Improve.MahAppsUI.csproj", "{F2B69A63-2650-4ACA-930B-4AAF013B769F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationLib", "LocalizationLib\LocalizationLib.csproj", "{CBECE1BB-5030-445C-AF3F-754D2C6ED056}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +62,10 @@ Global
 		{F2B69A63-2650-4ACA-930B-4AAF013B769F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2B69A63-2650-4ACA-930B-4AAF013B769F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2B69A63-2650-4ACA-930B-4AAF013B769F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBECE1BB-5030-445C-AF3F-754D2C6ED056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBECE1BB-5030-445C-AF3F-754D2C6ED056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBECE1BB-5030-445C-AF3F-754D2C6ED056}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBECE1BB-5030-445C-AF3F-754D2C6ED056}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +77,7 @@ Global
 		{313FBE80-54FB-4057-B289-A023D8BAE0C8} = {783ED2E3-B352-46F1-B2B2-49020EE9892D}
 		{A6EB1497-8132-4113-AB4D-03F13333E827} = {C7D55DE8-6ADA-4EE4-B71F-E1C9E29863F2}
 		{F2B69A63-2650-4ACA-930B-4AAF013B769F} = {C7D55DE8-6ADA-4EE4-B71F-E1C9E29863F2}
+		{CBECE1BB-5030-445C-AF3F-754D2C6ED056} = {C7D55DE8-6ADA-4EE4-B71F-E1C9E29863F2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34CAAD8C-309C-4849-994E-AEC3075135CA}

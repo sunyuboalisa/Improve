@@ -1,4 +1,4 @@
-﻿<mah:MetroWindow x:Class="Improve.Views.MainWindow"
+﻿<mah:MetroWindow TitleTemplate="{DynamicResource MetroWindowTitleTemplate1}" x:Class="Improve.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,9 +9,9 @@
         xmlns:infConstants="clr-namespace:Improve.Infrastructure.Contants;assembly=Improve.Infrastructure"
         xmlns:controls="clr-namespace:Improve.Controls"
         mc:Ignorable="d"
-        Height="450" Width="800"
-        prism:ViewModelLocator.AutoWireViewModel="True"
+        Height="450" Width="800" WindowStyle="None" AllowsTransparency="True"        prism:ViewModelLocator.AutoWireViewModel="True"
         ShowTitleBar="False" Background="Transparent" MouseLeftButtonDown="MetroWindow_MouseLeftButtonDown">
+    
     <Grid>
         <Grid x:Name="NavigateBarPanel" Grid.Column="0">
             <controls:NavigationBarDefault/>
