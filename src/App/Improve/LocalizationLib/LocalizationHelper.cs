@@ -50,7 +50,6 @@ namespace LocalizationLib
 
         }
 
-
         /// <summary>
         /// Get current culture info.
         /// </summary>
