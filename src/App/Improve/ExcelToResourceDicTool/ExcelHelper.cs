@@ -23,20 +23,46 @@ namespace ExcelToResourceDicTool
         }
 
 
-        private static IList<string> GetTablenames(DataTableCollection tables)
+        private static IList<string> GetTableColNames(DataTable table)
         {
-            var tableList = new List<string>();
-            foreach (var table in tables)
+            var tableColNames = new List<string>();
+
+            foreach (DataColumn col in table.Columns)
             {
-                tableList.Add(table.ToString());
+                tableColNames.Add(col.ColumnName);
             }
 
-            return tableList;
+            return tableColNames;
         }
 
-        public static bool VerifyFormat(string filePath)
+        static Dictionary<string, Dictionary<string,string>> GenerateLangPacksDic(DataTable table)
         {
-            bool res = false;
+            Dictionary<string, Dictionary<string, string>> langPacks=new Dictionary<string, Dictionary<string,string>>();
+
+
+            var colNames = GetTableColNames(table);
+            string keyHeaderName = colNames.Where(it => it.ToUpper() == "ID").FirstOrDefault(); //key 
+            var cultures = colNames.Where(it => it.ToUpper() != "ID"); // values  这个表中所有多语言的值。
+
+            foreach (var culture in cultures)
+            {
+                Dictionary<string,string> langPack=new Dictionary<string, string>();
+
+                foreach (DataRow row in table.Rows)
+                {
+                    langPack.Add(row[keyHeaderName].ToString(), row[culture].ToString());
+                }
+
+                langPacks.Add(culture.ToUpper(),langPack);
+            }
+
+            return langPacks;
+        }
+
+
+        public static Dictionary<string, Dictionary<string, string>> GetLangPackDic(string filePath)
+        {
+            Dictionary<string, Dictionary<string, string>> langPacks = new Dictionary<string, Dictionary<string, string>>();
 
             using (var stream = File.Open(filePath, FileMode.Open, FileAccess.Read))
             {
@@ -53,13 +79,19 @@ namespace ExcelToResourceDicTool
                         }
                     });
 
-                    var s = GetTablenames(result.Tables);
-                    GetValues(s.First(), "Evaluation Version");
-                    // The result of each spreadsheet is in result.Tables
+                    //
+                    // 只支持第一页sheet
+                    //
+                    foreach (DataTable table in result.Tables)
+                    {
+                        langPacks=GenerateLangPacksDic(table);
+                        break;
+                    }
+
                 }
             }
 
-            return res;
+            return langPacks;
         }
 
 

@@ -11,7 +11,6 @@ namespace ExcelToResourceDicTool
     {
         static void Main(string[] args)
         {
-            ExcelHelper.VerifyFormat(@"C:\Users\Administrator\Downloads\tt.xlsx");
             var cmdArgs = CommandArgs.Parse(args);
 
             if (cmdArgs==null)
@@ -21,7 +20,7 @@ namespace ExcelToResourceDicTool
             }
 
             ResourceDicHelper
-                .GenerateResourceDicByExcel("", "");
+                .GenerateResourceDicByExcel(cmdArgs.ExcelPath, cmdArgs.ResourceDicPath);
         }
     }
 }
