@@ -15,7 +15,7 @@ namespace ExcelToResourceDicTool
 
             if (cmdArgs==null)
             {
-                Debug.WriteLine("参数错误。");
+                Console.WriteLine("参数错误。ex: ExcelToResourceDicTool excelPath langPacksDirectory ");
                 return;
             }
 

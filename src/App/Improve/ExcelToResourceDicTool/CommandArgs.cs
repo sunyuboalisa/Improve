@@ -14,20 +14,27 @@ namespace ExcelToResourceDicTool
 
         public static CommandArgs Parse(params string[] args)
         {
-            if (args.Length>0)
+            try
             {
-                var excelPath = args[0];
-                var resourceDicPath = args[1];
+                if (args.Length > 0)
+                {
+                    var excelPath = args[0];
+                    var resourceDicPath = args[1];
 
-                var obj = new AppArgs(excelPath, resourceDicPath);
+                    var obj = new AppArgs(excelPath, resourceDicPath);
 
-                return obj;
+                    return obj;
+                }
+                else
+                {
+                    return null;
+                }
             }
-            else
+            catch (Exception)
             {
                 return null;
             }
-            
+           
         }
 
         public static CommandArgs Parse(string excelPath,string resourceDicPath)
