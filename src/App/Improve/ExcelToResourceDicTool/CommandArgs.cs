@@ -10,7 +10,7 @@ namespace ExcelToResourceDicTool
     {
         public abstract string ExcelPath { get; }
 
-        public abstract string ResourceDicPath { get; }
+        public abstract string LangPacksDir { get; }
 
         public static CommandArgs Parse(params string[] args)
         {
@@ -52,6 +52,6 @@ namespace ExcelToResourceDicTool
         public override string ExcelPath => _excelPath;
 
         private string _resourceDicPath;
-        public override string ResourceDicPath => _resourceDicPath;
+        public override string LangPacksDir => _resourceDicPath;
     }
 }

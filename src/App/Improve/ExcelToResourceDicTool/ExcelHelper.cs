@@ -9,33 +9,45 @@ using System.Threading.Tasks;
 
 namespace ExcelToResourceDicTool
 {
-    public static class ExcelHelper
+    public class ExcelHelper
     {
-        public static void GetValues(DataSet dataset, string sheetName)
+        
+        #region 公共方法
+
+        /// <summary>
+        /// 获取excel中的数据
+        /// </summary>
+        /// <param name="excelPath"></param>
+        public static DataSet GetDataSet(string excelPath)
         {
-            foreach (DataRow row in dataset.Tables[sheetName].Rows)
+            DataSet dataSet;
+
+            using (var stream = File.Open(excelPath, FileMode.Open, FileAccess.Read))
             {
-                foreach (var value in row.ItemArray)
+                // Auto-detect format, supports:
+                //  - Binary Excel files (2.0-2003 format; *.xls)
+                //  - OpenXml Excel files (2007 format; *.xlsx, *.xlsb)
+                using (var reader = ExcelReaderFactory.CreateReader(stream))
                 {
-                    Console.WriteLine("{0}, {1}", value, value.GetType());
+                    dataSet = reader.AsDataSet(new ExcelDataSetConfiguration()
+                    {
+                        ConfigureDataTable = (_) => new ExcelDataTableConfiguration()
+                        {
+                            UseHeaderRow = true
+                        }
+                    });
                 }
             }
+
+            return dataSet;
         }
 
-
-        private static IList<string> GetTableColNames(DataTable table)
-        {
-            var tableColNames = new List<string>();
-
-            foreach (DataColumn col in table.Columns)
-            {
-                tableColNames.Add(col.ColumnName);
-            }
-
-            return tableColNames;
-        }
-
-        static Dictionary<string, Dictionary<string,string>> GenerateLangPacksDic(DataTable table)
+        /// <summary>
+        /// 通过dataTable生成多语言资源文件字典数据。
+        /// </summary>
+        /// <param name="table"></param>
+        /// <returns>多语言资源文件的字典映射集合。</returns>
+        public static Dictionary<string, Dictionary<string,string>> GenerateLangPacksDic(DataTable table)
         {
             Dictionary<string, Dictionary<string, string>> langPacks=new Dictionary<string, Dictionary<string,string>>();
 
@@ -59,41 +71,22 @@ namespace ExcelToResourceDicTool
             return langPacks;
         }
 
+        #endregion
 
-        public static Dictionary<string, Dictionary<string, string>> GetLangPackDic(string filePath)
+        #region 私有方法
+
+        private static IList<string> GetTableColNames(DataTable table)
         {
-            Dictionary<string, Dictionary<string, string>> langPacks = new Dictionary<string, Dictionary<string, string>>();
+            var tableColNames = new List<string>();
 
-            using (var stream = File.Open(filePath, FileMode.Open, FileAccess.Read))
+            foreach (DataColumn col in table.Columns)
             {
-                // Auto-detect format, supports:
-                //  - Binary Excel files (2.0-2003 format; *.xls)
-                //  - OpenXml Excel files (2007 format; *.xlsx, *.xlsb)
-                using (var reader = ExcelReaderFactory.CreateReader(stream))
-                {
-                    var result = reader.AsDataSet(new ExcelDataSetConfiguration()
-                    {
-                        ConfigureDataTable = (_) => new ExcelDataTableConfiguration()
-                        {
-                            UseHeaderRow = true
-                        }
-                    });
-
-                    //
-                    // 只支持第一页sheet
-                    //
-                    foreach (DataTable table in result.Tables)
-                    {
-                        langPacks=GenerateLangPacksDic(table);
-                        break;
-                    }
-
-                }
+                tableColNames.Add(col.ColumnName);
             }
 
-            return langPacks;
+            return tableColNames;
         }
 
-
+        #endregion
     }
 }

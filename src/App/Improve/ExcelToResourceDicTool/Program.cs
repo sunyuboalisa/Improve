@@ -20,7 +20,7 @@ namespace ExcelToResourceDicTool
             }
 
             ResourceDicHelper
-                .GenerateResourceDicByExcel(cmdArgs.ExcelPath, cmdArgs.ResourceDicPath);
+                .GenerateResourceDicByExcel(cmdArgs.ExcelPath, cmdArgs.LangPacksDir);
         }
     }
 }
