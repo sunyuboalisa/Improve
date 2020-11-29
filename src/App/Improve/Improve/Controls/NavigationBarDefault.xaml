@@ -84,7 +84,7 @@
                                                 Label="Study Room" />
                     <mah:HamburgerMenuGlyphItem Glyph="" Label="Study Notes" />
                     <mah:HamburgerMenuGlyphItem Glyph="" Label="Articles" />
-                    <mah:HamburgerMenuGlyphItem Glyph="" Label="Plan" />
+                    <mah:HamburgerMenuGlyphItem Glyph="" Label="Plan" Command="{Binding NavigateCommand}" CommandParameter="HomeView"/>
                     <mah:HamburgerMenuGlyphItem Glyph="" Label="Slack" />
                     <mah:HamburgerMenuGlyphItem Glyph="" Label="Friends" />
                     <mah:HamburgerMenuGlyphItem Glyph="" Label="Settings" />
