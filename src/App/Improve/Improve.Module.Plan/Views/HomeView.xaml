@@ -8,7 +8,35 @@
              d:DesignHeight="800" d:DesignWidth="1200"
              xmlns:prism="http://prismlibrary.com/"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-             prism:ViewModelLocator.AutoWireViewModel="True" >
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Improve.MahAppsUI;component/Themes/Generic.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate x:Key="ListBoxItemTemplate">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ToggleButton
+                              Content="C"
+                              IsChecked="True"
+                              />
+                    <DockPanel LastChildFill="True" Grid.Column="1">
+                        <TextBlock Text="{Binding StartTime, StringFormat=t}"
+                                   VerticalAlignment="Center" HorizontalAlignment="Left"
+                                   DockPanel.Dock="Top" Margin="8,0,0,0"
+                                   FontSize="24" 
+                                   Foreground="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}"/>
+                        <TextBlock Text="{Binding Title}" FontSize="18" 
+                                   TextTrimming="CharacterEllipsis"/>
+                    </DockPanel>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <DockPanel>
         <DockPanel.Resources>
             <!--Control colors.-->
@@ -81,7 +109,7 @@
                     </GradientStopCollection>
                 </LinearGradientBrush.GradientStops>
             </LinearGradientBrush>
-            
+
             <Style TargetType="GroupBox">
                 <Setter Property="Template">
                     <Setter.Value>
@@ -150,10 +178,10 @@
                     </Setter.Value>
                 </Setter>
             </Style>
-            
+
         </DockPanel.Resources>
-       
-        <!--Plan preview--> 
+
+        <!--Plan preview-->
         <Grid x:Name="planPreviewPanel" MinWidth="300">
             <GroupBox Margin="5" >
                 <GroupBox.Header>
@@ -162,11 +190,15 @@
                                    FontSize="28"
                                    Margin="5"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <iconPacks:PackIconMaterial Kind="CalendarPlus" 
+                            <Button Background="Transparent" Padding="0"
+                                    Command="{Binding AddPlanCmd}">
+                                <iconPacks:PackIconMaterial Kind="CalendarPlus" 
                                         Width="50" Height="50"
                                         HorizontalAlignment="Right"
                                         VerticalAlignment="Center"
                                         Margin="5"/>
+                            </Button>
+                            
                             <iconPacks:PackIconMaterial Width="50" Height="50"
                                         Kind="CalendarCheck"
                                         HorizontalAlignment="Right"
@@ -181,13 +213,14 @@
                     </Grid>
                 </GroupBox.Header>
                 <Grid>
-                    <ListBox>
+                    <ListBox ItemTemplate="{DynamicResource ListBoxItemTemplate}"
+                             ItemsSource="{Binding Plans}">
 
                     </ListBox>
                 </Grid>
             </GroupBox>
 
-            
+
         </Grid>
     </DockPanel>
 </UserControl>
