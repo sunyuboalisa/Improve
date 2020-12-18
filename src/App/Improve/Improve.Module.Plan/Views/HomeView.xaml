@@ -217,6 +217,7 @@
                              ItemsSource="{Binding Plans}">
 
                     </ListBox>
+                    <local:Calendar/>
                 </Grid>
             </GroupBox>
 

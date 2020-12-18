@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="Improve.Module.Plan.Views.Calendar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Improve.Module.Plan.Views"
+             xmlns:vm="clr-namespace:Improve.Module.Plan.ViewModels"
+             xmlns:prism="http://prismlibrary.com/"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1200"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <UserControl.DataContext>
+        <vm:CalendarViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <DataGrid AutoGenerateColumns="False"
+                  MinColumnWidth="50" ColumnWidth="SizeToCells"
+                  CanUserResizeColumns="True"
+                  ItemsSource="{Binding WeekSchedule.RawSchedules}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Time" Binding="{Binding Hours}"/>
+                
+                <DataGridTemplateColumn Header="Sunday">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Border Background="AliceBlue"/>
+                                <TextBlock Text="{Binding TimeQuantum, Mode=OneWay}" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn Header="Six">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <!--<Border Background="Black"/>-->
+                                <TextBlock Text="{Binding TimeQuantum,Mode=OneWay}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <!--<Border Background="Black"/>-->
+                                <TextBlock Text="{Binding Todo.Title}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <!--<Border Background="Black"/>-->
+                                <TextBlock Text="{Binding Todo.Title}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <!--<Border Background="Black"/>-->
+                                <TextBlock Text="{Binding Todo.Title}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <!--<Border Background="Black"/>-->
+                                <TextBlock Text="{Binding Todo.Title}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <!--<Border Background="Black"/>-->
+                                <TextBlock Text="{Binding Todo.Title}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+            </DataGrid.Columns>
+        </DataGrid>  
+    </Grid>
+</UserControl>
