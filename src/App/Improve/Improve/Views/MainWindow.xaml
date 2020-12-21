@@ -14,7 +14,9 @@
     
     <Grid>
         <Grid x:Name="NavigateBarPanel" Grid.Column="0">
-            <controls:NavigationBarDefault/>
+            <!--<controls:NavigationBarDefault/>-->
+            <ContentControl prism:RegionManager.RegionName="{x:Static infConstants:RegionNames.NavigationBarRegion}"
+                                            Focusable="True"/>
         </Grid>
         <!--<ContentControl prism:RegionManager.RegionName="{x:Static infConstants:RegionNames.NavigationBarRegion}"
                                             Focusable="True"/>-->

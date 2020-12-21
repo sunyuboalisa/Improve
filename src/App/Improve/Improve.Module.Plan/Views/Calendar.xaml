@@ -8,96 +8,99 @@
              xmlns:prism="http://prismlibrary.com/"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1200"
-             prism:ViewModelLocator.AutoWireViewModel="True">
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:controls="clr-namespace:Improve.Module.Plan.Controls">
     <UserControl.DataContext>
         <vm:CalendarViewModel/>
     </UserControl.DataContext>
-    <Grid>
-        <DataGrid AutoGenerateColumns="False"
-                  MinColumnWidth="50" ColumnWidth="SizeToCells"
-                  CanUserResizeColumns="True"
-                  ItemsSource="{Binding WeekSchedule.RawSchedules}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Time" Binding="{Binding Hours}"/>
-                
-                <DataGridTemplateColumn Header="Sunday">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Border Background="AliceBlue"/>
-                                <TextBlock Text="{Binding TimeQuantum, Mode=OneWay}" />
-                            </Grid>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                
-                <DataGridTemplateColumn Header="Six">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <!--<Border Background="Black"/>-->
-                                <TextBlock Text="{Binding TimeQuantum,Mode=OneWay}"/>
-                            </Grid>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <!--<Border Background="Black"/>-->
-                                <TextBlock Text="{Binding Todo.Title}"/>
-                            </Grid>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <!--<Border Background="Black"/>-->
-                                <TextBlock Text="{Binding Todo.Title}"/>
-                            </Grid>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <!--<Border Background="Black"/>-->
-                                <TextBlock Text="{Binding Todo.Title}"/>
-                            </Grid>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <!--<Border Background="Black"/>-->
-                                <TextBlock Text="{Binding Todo.Title}"/>
-                            </Grid>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <!--<Border Background="Black"/>-->
-                                <TextBlock Text="{Binding Todo.Title}"/>
-                            </Grid>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                
-            </DataGrid.Columns>
-        </DataGrid>  
+    <Grid Background="White">
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style>
+            <Style TargetType="Border">
+                <Setter Property="Background" Value="LightBlue"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!--Header-->
+        <Border>
+            <TextBlock Text="Time"/>
+        </Border>
+        <Border Grid.Column="1">
+            <TextBlock Text="Sunday"/>
+        </Border>
+        <Border Grid.Column="2">
+            <TextBlock Text="Monday"/>
+        </Border>
+        <Border Grid.Column="3">
+            <TextBlock Text="Tuesday"/>
+        </Border>
+        <Border Grid.Column="4">
+            <TextBlock Text="Wednesday"/>
+        </Border>
+        <Border Grid.Column="5">
+            <TextBlock Text="Thursday"/>
+        </Border>
+        <Border Grid.Column="6">
+            <TextBlock Text="Friday"/>
+        </Border>
+        <Border Grid.Column="7">
+            <TextBlock Text="Saturday"/>
+        </Border>
+        <!--Content background-->
+        <controls:BackgroundGrid Rows="24" Columns="8" 
+                                 Grid.Row="1" Grid.ColumnSpan="8"/>
+        <!--Hours of day-->
+        <UniformGrid Grid.Row="1"
+                     Rows="24">
+            <TextBlock Text="0"/>
+            <TextBlock Text="1"/>
+            <TextBlock Text="2"/>
+            <TextBlock Text="3"/>
+            <TextBlock Text="4"/>
+            <TextBlock Text="5"/>
+            <TextBlock Text="6"/>
+            <TextBlock Text="7"/>
+            <TextBlock Text="8"/>
+            <TextBlock Text="9"/>
+            <TextBlock Text="10"/>
+            <TextBlock Text="11"/>
+            <TextBlock Text="12"/>
+            <TextBlock Text="13"/>
+            <TextBlock Text="14"/>
+            <TextBlock Text="15"/>
+            <TextBlock Text="16"/>
+            <TextBlock Text="17"/>
+            <TextBlock Text="18"/>
+            <TextBlock Text="19"/>
+            <TextBlock Text="20"/>
+            <TextBlock Text="21"/>
+            <TextBlock Text="22"/>
+            <TextBlock Text="23"/>
+        </UniformGrid>
+        <!--WeekSchedule-->
+        <controls:DaySchedule Grid.Row="1" Grid.Column="1"/>
+        <controls:DaySchedule Grid.Row="1" Grid.Column="2"/>
+        <controls:DaySchedule Grid.Row="1" Grid.Column="3"/>
+        <controls:DaySchedule Grid.Row="1" Grid.Column="4"/>
+        <controls:DaySchedule Grid.Row="1" Grid.Column="5"/>
+        <controls:DaySchedule Grid.Row="1" Grid.Column="6"/>
+        <controls:DaySchedule Grid.Row="1" Grid.Column="7"/>
     </Grid>
 </UserControl>

@@ -34,7 +34,10 @@ namespace Improve.Module.Plan.Models
         {
             Schedules = new ObservableCollection<DaySchedule>();
 
-            Schedules.Add(new DaySchedule { Date = new DateTime(2020, 12, 13) });
+            var day1 = new DaySchedule { Date = new DateTime(2020, 12, 13) };
+            day1.AddTodo(new Todo { Title = "Todo 1",StartTime=new DateTime(2020,12,13,11,00,00),EndTime=new DateTime(2020, 12, 13, 12, 00, 00) });
+            Schedules.Add(day1);
+
             Schedules.Add(new DaySchedule { Date = new DateTime(2020, 12, 14) });
             Schedules.Add(new DaySchedule { Date = new DateTime(2020, 12, 15) });
             Schedules.Add(new DaySchedule { Date = new DateTime(2020, 12, 16) });
@@ -62,8 +65,6 @@ namespace Improve.Module.Plan.Models
             get { return _date; }
             set { SetProperty(ref _date, value); }
         }
-
-        
     }
 
     public class RowSchedule : Schedule

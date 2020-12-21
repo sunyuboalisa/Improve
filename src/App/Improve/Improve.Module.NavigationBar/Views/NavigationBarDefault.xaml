@@ -5,151 +5,74 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300"
+             d:DesignHeight="500" d:DesignWidth="200"
              xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              prism:ViewModelLocator.AutoWireViewModel="True">
     <UserControl.Resources>
-        <!--  This is the template for all menu items. In this sample we use the glyph items.  -->
-        <DataTemplate x:Key="HamburgerMenuItem" DataType="{x:Type mah:HamburgerMenuGlyphItem}">
-            <DockPanel Height="48" LastChildFill="True">
-                <Grid x:Name="IconPart"
-                          Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type mah:HamburgerMenu}}, Path=CompactPaneLength}"
-                          DockPanel.Dock="Left">
-                    <Image Margin="12"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Source="{Binding Glyph}" />
-                </Grid>
-                <TextBlock x:Name="TextPart"
-                               VerticalAlignment="Center"
-                               FontSize="16"
-                               Text="{Binding Label}" />
-            </DockPanel>
-            <DataTemplate.Triggers>
-                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type mah:HamburgerMenu}}, Path=PanePlacement}" Value="Right">
-                    <Setter TargetName="IconPart" Property="DockPanel.Dock" Value="Right" />
-                    <Setter TargetName="TextPart" Property="Margin" Value="8 0 0 0" />
-                </DataTrigger>
-            </DataTemplate.Triggers>
-        </DataTemplate>
-
-        <!--  This is the template for the option menu item  -->
-        <DataTemplate x:Key="HamburgerOptionsMenuItem" DataType="{x:Type mah:HamburgerMenuIconItem}">
-            <DockPanel Height="48" LastChildFill="True">
-                <ContentControl x:Name="IconPart"
-                                    Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type mah:HamburgerMenu}}, Path=CompactPaneLength}"
-                                    Content="{Binding Icon}"
-                                    DockPanel.Dock="Left"
-                                    Focusable="False"
-                                    IsTabStop="False" />
-                <TextBlock x:Name="TextPart"
-                               VerticalAlignment="Center"
-                               FontSize="16"
-                               Text="{Binding Label}" />
-            </DockPanel>
-            <DataTemplate.Triggers>
-                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type mah:HamburgerMenu}}, Path=PanePlacement}" Value="Right">
-                    <Setter TargetName="IconPart" Property="DockPanel.Dock" Value="Right" />
-                    <Setter TargetName="TextPart" Property="Margin" Value="8 0 0 0" />
-                </DataTrigger>
-            </DataTemplate.Triggers>
-        </DataTemplate>
+        <ResourceDictionary Source="pack://application:,,,/Improve.MahAppsUI;component/Themes/Generic.xaml"/>
     </UserControl.Resources>
-    
-    <Border Grid.Column="0" 
-            BorderThickness="1"
-            BorderBrush="{DynamicResource MahApps.Brushes.Gray7}">
-        <mah:HamburgerMenu ItemTemplate="{DynamicResource HamburgerMenuItem}"
-                           OptionsItemTemplate="{StaticResource HamburgerOptionsMenuItem}"
-                           DisplayMode="CompactOverlay"
-                           HamburgerWidth="48"
-                           SelectedIndex="1"
-                           VerticalScrollBarOnLeftSide="False"
-                           ItemInvoked="HamburgerMenu_ItemInvoked">
-            <mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
-                <DataTemplate>
-                    <TextBlock HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                FontSize="18"
-                                Text="Improve" Foreground="#FFE0D9D9" FontWeight="Bold"/>
-                </DataTemplate>
-            </mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
-            <mah:HamburgerMenu.ItemsSource>
-                <mah:HamburgerMenuItemCollection>
-                    <mah:HamburgerMenuGlyphItem AutomationProperties.HelpText="First Item shows BigFourSummerHeat"
-                                                AutomationProperties.Name="First Item"
-                                                Label="Study Room" />
-                    <mah:HamburgerMenuGlyphItem Glyph="" Label="Study Notes" />
-                    <mah:HamburgerMenuGlyphItem Glyph="" Label="Articles" />
-                    <mah:HamburgerMenuGlyphItem Glyph="" Label="Plan" />
-                    <mah:HamburgerMenuGlyphItem Glyph="" Label="Slack" />
-                    <mah:HamburgerMenuGlyphItem Glyph="" Label="Friends" />
-                    <mah:HamburgerMenuGlyphItem Glyph="" Label="Settings" />
-                </mah:HamburgerMenuItemCollection>
-            </mah:HamburgerMenu.ItemsSource>
-            <!--  Options  -->
-            <mah:HamburgerMenu.OptionsItemsSource>
-                <mah:HamburgerMenuItemCollection>
+    <Grid Background="DarkGoldenrod">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
 
-                    <mah:HamburgerMenuIconItem x:Name="AboutOption"
-                                                   Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=mah:HamburgerMenu}, Path=DataContext.ShowHamburgerAboutCommand}"
-                                                   Label="About">
-                        <mah:HamburgerMenuIconItem.Icon>
-                            <iconPacks:PackIconMaterial Width="22"
-                                                            Height="22"
-                                                            HorizontalAlignment="Center"
-                                                            VerticalAlignment="Center"
-                                                            Kind="Help" />
-                        </mah:HamburgerMenuIconItem.Icon>
-                        <mah:HamburgerMenuIconItem.Tag>
-                            <TextBlock HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"
-                                           FontSize="28"
-                                           FontWeight="Bold">
-                                    About
-                            </TextBlock>
-                        </mah:HamburgerMenuIconItem.Tag>
-                    </mah:HamburgerMenuIconItem>
+        <DockPanel Grid.Column="0">
+            <DockPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="50"/>
+                    <Setter Property="Height" Value="50"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                    <Setter Property="Margin" Value="5,0,0,0"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="Visibility" Value="{Binding IsVisibled,Converter={StaticResource BoolToVisibilityConverter}}"/>
+                </Style>
+            </DockPanel.Resources>
+            <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
+                <StackPanel Orientation="Horizontal">
+                    <Button>
+                        <iconPacks:PackIconBoxIcons Height="35" Width="35"
+                                            Kind="RegularAlarm"/>
+                    </Button>
+                    <TextBlock Text="Study Room" />
+                </StackPanel>
 
-                </mah:HamburgerMenuItemCollection>
-            </mah:HamburgerMenu.OptionsItemsSource>
-            <!--  Content  -->
-            <mah:HamburgerMenu.ContentTemplate>
-                <DataTemplate>
-                    <Grid x:Name="ContentGrid">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="48" />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <Border Grid.Row="0"
-                                    Margin="-1 0 -1 0"
-                                    Background="#7A7A7A">
-                            <TextBlock x:Name="Header"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"
-                                           FontSize="24"
-                                           Foreground="White"
-                                           Text="{Binding Label}" />
-                        </Border>
-                        <mah:TransitioningContentControl Grid.Row="1"
-                                                             Content="{Binding}"
-                                                             RestartTransitionOnContentChange="True"
-                                                             Transition="Default">
-                            <mah:TransitioningContentControl.Resources>
-                                <DataTemplate DataType="{x:Type mah:HamburgerMenuGlyphItem}">
-                                    <Image Source="{Binding Glyph, Mode=OneWay}" />
-                                </DataTemplate>
-                                <DataTemplate DataType="{x:Type mah:HamburgerMenuIconItem}">
-                                    <ContentControl Content="{Binding Tag, Mode=OneWay}"
-                                                        Focusable="True"
-                                                        IsTabStop="False" />
-                                </DataTemplate>
-                            </mah:TransitioningContentControl.Resources>
-                        </mah:TransitioningContentControl>
-                    </Grid>
-                </DataTemplate>
-            </mah:HamburgerMenu.ContentTemplate>
-        </mah:HamburgerMenu>
-    </Border>
+                <StackPanel Orientation="Horizontal">
+                    <Button>
+                        <iconPacks:PackIconBoxIcons Height="35" Width="35"
+                                            Kind="RegularNotepad"/>
+                    </Button>
+                    <TextBlock Text="Notes"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button>
+                        <iconPacks:PackIconBoxIcons Height="35" Width="35"
+                                            Kind="RegularPaperPlane"/>
+                    </Button>
+                    <TextBlock Text="Plan"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button>
+                        <iconPacks:PackIconBoxIcons Height="35" Width="35"
+                                            Kind="RegularArrowFromBottom"/>
+                    </Button>
+                    <TextBlock Text="Slack"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button>
+                        <iconPacks:PackIconBoxIcons Height="35" Width="35"
+                                            Kind="LogosMediumSquare"/>
+                    </Button>
+                    <TextBlock Text="Settings"/>
+                </StackPanel>
+            </StackPanel>
+            
+        </DockPanel>
+    </Grid>
 </UserControl>
