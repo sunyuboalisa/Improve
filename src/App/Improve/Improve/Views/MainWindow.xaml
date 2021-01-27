@@ -9,16 +9,20 @@
         xmlns:infConstants="clr-namespace:Improve.Infrastructure.Contants;assembly=Improve.Infrastructure"
         xmlns:controls="clr-namespace:Improve.Controls"
         mc:Ignorable="d"
-        Height="450" Width="800" WindowStyle="None" AllowsTransparency="True"        prism:ViewModelLocator.AutoWireViewModel="True"
-        ShowTitleBar="False" Background="Transparent" MouseLeftButtonDown="MetroWindow_MouseLeftButtonDown">
+        WindowStyle="None" AllowsTransparency="True" 
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        MouseLeftButtonDown="MetroWindow_MouseLeftButtonDown"
+        MinWidth="900" MinHeight="500">
     
     <Grid>
-        <Grid x:Name="NavigateBarPanel" Grid.Column="0">
-            <!--<controls:NavigationBarDefault/>-->
-            <ContentControl prism:RegionManager.RegionName="{x:Static infConstants:RegionNames.NavigationBarRegion}"
-                                            Focusable="True"/>
+        <!--内容区域-->
+        <Grid>
+            <ContentControl prism:RegionManager.RegionName="{x:Static infConstants:RegionNames.ContentRegion}"/>
         </Grid>
-        <!--<ContentControl prism:RegionManager.RegionName="{x:Static infConstants:RegionNames.NavigationBarRegion}"
-                                            Focusable="True"/>-->
+        <!--悬浮导航栏-->
+        <Grid x:Name="NavigateBarPanel" Margin="50"
+              VerticalAlignment="Bottom" HorizontalAlignment="Left">
+            <ContentControl prism:RegionManager.RegionName="{x:Static infConstants:RegionNames.NavigationBarRegion}"/>
+        </Grid>
     </Grid>
 </mah:MetroWindow>
