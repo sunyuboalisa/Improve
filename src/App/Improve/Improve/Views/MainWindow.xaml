@@ -1,28 +1,26 @@
 ﻿<mah:MetroWindow TitleTemplate="{DynamicResource MetroWindowTitleTemplate1}" x:Class="Improve.Views.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Improve"
-        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        xmlns:prism="http://prismlibrary.com/" 
-        xmlns:infConstants="clr-namespace:Improve.Infrastructure.Contants;assembly=Improve.Infrastructure"
-        xmlns:controls="clr-namespace:Improve.Controls"
-        mc:Ignorable="d"
-        WindowStyle="None" AllowsTransparency="True" 
-        prism:ViewModelLocator.AutoWireViewModel="True"
-        MouseLeftButtonDown="MetroWindow_MouseLeftButtonDown"
-        MinWidth="900" MinHeight="500">
-    
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:prism="http://prismlibrary.com/"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:infConstants="clr-namespace:Improve.Infrastructure.Contants;assembly=Improve.Infrastructure"
+                 xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                 mc:Ignorable="d"
+                 WindowStyle="None" AllowsTransparency="True"
+                 prism:ViewModelLocator.AutoWireViewModel="True"
+                 MouseLeftButtonDown="MetroWindow_MouseLeftButtonDown"
+                 MinWidth="900" MinHeight="500">
+
     <Grid>
         <!--内容区域-->
         <Grid>
-            <ContentControl prism:RegionManager.RegionName="{x:Static infConstants:RegionNames.ContentRegion}"/>
+            <ContentControl prism:RegionManager.RegionName="{x:Static infConstants:RegionNames.ContentRegion}" />
         </Grid>
         <!--悬浮导航栏-->
         <Grid x:Name="NavigateBarPanel" Margin="50"
               VerticalAlignment="Bottom" HorizontalAlignment="Left">
-            <ContentControl prism:RegionManager.RegionName="{x:Static infConstants:RegionNames.NavigationBarRegion}"/>
+            <ContentControl prism:RegionManager.RegionName="{x:Static infConstants:RegionNames.NavigationBarRegion}" />
         </Grid>
     </Grid>
 </mah:MetroWindow>
