@@ -25,10 +25,5 @@ namespace Improve.Views
         {
             InitializeComponent();
         }
-
-        private void MetroWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
-        }
     }
 }

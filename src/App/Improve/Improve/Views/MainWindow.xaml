@@ -7,11 +7,8 @@
                  xmlns:infConstants="clr-namespace:Improve.Infrastructure.Contants;assembly=Improve.Infrastructure"
                  xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                  mc:Ignorable="d"
-                 WindowStyle="None" AllowsTransparency="True"
                  prism:ViewModelLocator.AutoWireViewModel="True"
-                 MouseLeftButtonDown="MetroWindow_MouseLeftButtonDown"
                  MinWidth="900" MinHeight="500">
-
     <Grid>
         <!--内容区域-->
         <Grid>

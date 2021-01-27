@@ -19,10 +19,25 @@ namespace Improve.Module.Plan.ViewModels
             set { SetProperty(ref _message, value); }
         }
 
+        private string _proverbs;
+        public string Proverbs
+        {
+            get { return _proverbs; }
+            set { SetProperty(ref _proverbs, value); }
+        }
+
+        private string _proverbs_En;
+        public string Proverbs_En
+        {
+            get { return _proverbs_En; }
+            set { SetProperty(ref _proverbs_En, value); }
+        }
+
         public HomeViewModel()
         {
             Message = "View A from your Prism Module";
             Plans = new ObservableCollection<Models.Plan>();
+            Proverbs = "  View A from your Prism ModuleView A from your Prism ModuleView A from your Prism ModuleView A from your Prism ModuleView A from your Prism Module";
         }
 
         public ObservableCollection<Models.Plan> Plans { get; set; }
