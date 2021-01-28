@@ -12,52 +12,16 @@ namespace Improve.Module.Plan.ViewModels
 {
     public class HomeViewModel : BindableBase, IActiveAware
     {
-        private IEventAggregator _ea;
+        private DelegateCommand _AddPlanCmd;
         private IApplicationCommands _applicationCommands;
-
-        public event EventHandler IsActiveChanged;
-
+        private IEventAggregator _ea;
         private bool _isActive;
-
-        public bool IsActive
-        {
-            get => _isActive;
-            set
-            {
-                _isActive = value;
-                OnIsActiveChanged();
-            }
-        }
-
-        private void OnIsActiveChanged()
-        {
-            //HomeCmd.IsActive = IsActive; //set the command as active
-            IsActiveChanged?.Invoke(this, new EventArgs()); //invoke the event for all listeners
-        }
 
         private string _message;
 
-        public string Message
-        {
-            get { return _message; }
-            set { SetProperty(ref _message, value); }
-        }
-
         private string _proverbs;
 
-        public string Proverbs
-        {
-            get { return _proverbs; }
-            set { SetProperty(ref _proverbs, value); }
-        }
-
         private string _proverbs_En;
-
-        public string Proverbs_En
-        {
-            get { return _proverbs_En; }
-            set { SetProperty(ref _proverbs_En, value); }
-        }
 
         public HomeViewModel(IEventAggregator ea, IApplicationCommands applicationCommands)
         {
@@ -69,19 +33,65 @@ namespace Improve.Module.Plan.ViewModels
             _applicationCommands = applicationCommands;
         }
 
-        public ObservableCollection<Models.Plan> Plans { get; set; }
-
-        private DelegateCommand _AddPlanCmd;
-
+        public event EventHandler IsActiveChanged;
         public DelegateCommand AddPlanCmd =>
             _AddPlanCmd ?? (_AddPlanCmd = new DelegateCommand(ExecuteAddPlanCmd));
 
-        private void ExecuteAddPlanCmd()
+        private DelegateCommand<string> _openSchedule;
+        public DelegateCommand<string> OpenSchedule =>
+            _openSchedule ?? (_openSchedule = new DelegateCommand<string>(ExecuteOpenSchedule));
+
+        void ExecuteOpenSchedule(string viewNames)
         {
-            var plan = new Models.Plan() { Name = "Plan1", Description = "sample plan.", Title = "Plan1 Title" };
-            Plans.Add(plan);
+            _applicationCommands.Navigate.Execute(viewNames);
         }
 
+        public bool IsActive
+        {
+            get => _isActive;
+            set
+            {
+                _isActive = value;
+                OnIsActiveChanged();
+            }
+        }
+
+        public string Message
+        {
+            get { return _message; }
+            set { SetProperty(ref _message, value); }
+        }
+
+        public ObservableCollection<Models.Plan> Plans { get; set; }
+
+        public string Proverbs
+        {
+            get { return _proverbs; }
+            set { SetProperty(ref _proverbs, value); }
+        }
+
+        public string Proverbs_En
+        {
+            get { return _proverbs_En; }
+            set { SetProperty(ref _proverbs_En, value); }
+        }
+
+        private void Destroy()
+        {
+            _applicationCommands.AddPlan.UnregisterCommand(AddPlanCmd);
+            _applicationCommands.OpenSchedule.UnregisterCommand(OpenSchedule);
+        }
+
+        private void ExecuteAddPlanCmd()
+        {
+            
+        }
+
+        private void OnIsActiveChanged()
+        {
+            //HomeCmd.IsActive = IsActive; //set the command as active
+            IsActiveChanged?.Invoke(this, new EventArgs()); //invoke the event for all listeners
+        }
         private void UpdateMenu_Handler(NavigationResult result)
         {
             //
@@ -92,16 +102,12 @@ namespace Improve.Module.Plan.ViewModels
             if (IsActive)
             {
                 _applicationCommands.AddPlan.RegisterCommand(AddPlanCmd);
+                _applicationCommands.OpenSchedule.RegisterCommand(OpenSchedule);
             }
             else
             {
                 Destroy();
             };
-        }
-
-        private void Destroy()
-        {
-            _applicationCommands.AddPlan.UnregisterCommand(AddPlanCmd);
         }
     }
 }

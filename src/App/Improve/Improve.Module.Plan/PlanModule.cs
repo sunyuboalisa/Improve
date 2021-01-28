@@ -17,7 +17,7 @@ namespace Improve.Module.Plan
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<HomeView>(PlanViews.Home);
-            containerRegistry.RegisterForNavigation<Calendar>(PlanViews.Plan);
+            containerRegistry.RegisterForNavigation<Calendar>(PlanViews.Schedule);
         }
     }
 }

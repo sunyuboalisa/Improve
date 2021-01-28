@@ -8,5 +8,11 @@ namespace Improve.CompositeCommands.Core
     {
         private CompositeCommand _addPlan = new CompositeCommand();
         public CompositeCommand AddPlan => _addPlan;
+
+        private CompositeCommand _navigate = new CompositeCommand();
+        public CompositeCommand Navigate => _navigate;
+
+        private CompositeCommand _openSchedule = new CompositeCommand();
+        public CompositeCommand OpenSchedule => _openSchedule;
     }
 }

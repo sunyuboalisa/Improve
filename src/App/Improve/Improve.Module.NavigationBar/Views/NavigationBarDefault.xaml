@@ -22,7 +22,7 @@
                         <Setter Property="Height" Value="60" />
                         <Setter Property="Background" Value="LightBlue" />
                         <Setter Property="Margin" Value="4 5" />
-                        <Setter Property="Command" Value="{Binding Navigate}"/>
+                        <Setter Property="Command" Value="{Binding ApplicationCommands.Navigate}"/>
                     </Style>
                 </StackPanel.Resources>
                 
@@ -35,9 +35,9 @@
                     </Button>
 
                     <Button CommandParameter="{x:Static views:PlanViews.Home}">
-                        <iconPacks:PackIconBoxIcons
+                        <iconPacks:PackIconForkAwesome
                             Height="35" Width="35"
-                            Kind="RegularNotepad" />
+                            Kind="CalendarCheckOutline" />
                     </Button>
 
                     <Button CommandParameter="{x:Static views:SettingsViews.Home}">
@@ -53,11 +53,14 @@
                             Kind="Plus"/>
                     </Button>
 
-                    <!--<Button>
-                        <iconPacks:PackIconBoxIcons
+                    <Button Command="{Binding ApplicationCommands.OpenSchedule}"
+                            CommandParameter="{x:Static views:PlanViews.Schedule}"
+                            Visibility="{Binding IsEnabled,RelativeSource={RelativeSource Mode=Self},
+                            Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <iconPacks:PackIconForkAwesome
                             Height="35" Width="35"
-                            Kind="RegularArrowFromBottom" />
-                    </Button>-->
+                            Kind="Calendar" />
+                    </Button>
                 </StackPanel>
 
                 <Button Command="{Binding ExpendMenuCmd}">

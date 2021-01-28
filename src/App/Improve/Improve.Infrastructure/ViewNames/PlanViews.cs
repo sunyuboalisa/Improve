@@ -7,6 +7,6 @@ namespace Improve.Infrastructure.ViewNames
     public sealed class PlanViews
     {
         public const string Home = "PlanViews.Home";
-        public const string Plan = "PlanViews.Plan";
+        public const string Schedule = "PlanViews.Schedule";
     }
 }

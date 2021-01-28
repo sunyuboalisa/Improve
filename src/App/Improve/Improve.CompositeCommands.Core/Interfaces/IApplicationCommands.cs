@@ -8,5 +8,7 @@ namespace Improve.CompositeCommands.Core.Interfaces
     public interface IApplicationCommands
     {
         CompositeCommand AddPlan { get; }
+        CompositeCommand Navigate { get; }
+        CompositeCommand OpenSchedule { get; }
     }
 }

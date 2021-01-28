@@ -24,6 +24,7 @@ namespace Improve.Module.NavigationBar.ViewModels
             _regionManager = manager;
             _ea = ea;
             _applicationCommands = applicationCommands;
+            _applicationCommands.Navigate.RegisterCommand(Navigate);
         }
 
         private IApplicationCommands _applicationCommands;
