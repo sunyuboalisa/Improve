@@ -11,9 +11,6 @@
              prism:ViewModelLocator.AutoWireViewModel="True"
              xmlns:controls="clr-namespace:Improve.Module.Plan.Controls"
              Loaded="UserControl_Loaded">
-    <UserControl.DataContext>
-        <vm:CalendarViewModel/>
-    </UserControl.DataContext>
     <Grid Background="White">
         <Grid.Resources>
             <Style TargetType="TextBlock">

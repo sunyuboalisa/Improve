@@ -1,5 +1,7 @@
 ﻿using Improve.Infrastructure.Contants;
+using Improve.Infrastructure.Events;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
 using Prism.Regions;
 
@@ -8,14 +10,16 @@ namespace Improve.Module.NavigationBar.ViewModels
     public class NavigationBarDefaultViewModel : BindableBase
     {
         private readonly IRegionManager _regionManager;
+        private IEventAggregator _ea;
         private DelegateCommand _expendMenucmd;
         private bool _isExpended;
         private bool _isVisibled;
         private DelegateCommand<string> _navigate;
 
-        public NavigationBarDefaultViewModel(IRegionManager manager)
+        public NavigationBarDefaultViewModel(IRegionManager manager, IEventAggregator ea)
         {
             _regionManager = manager;
+            _ea = ea;
         }
 
         public DelegateCommand ExpendMenuCmd =>
@@ -43,7 +47,20 @@ namespace Improve.Module.NavigationBar.ViewModels
 
         private void ExecuteNavigate(string viewName)
         {
-            _regionManager.RequestNavigate(RegionNames.ContentRegion, viewName);
+            _regionManager.RequestNavigate(RegionNames.ContentRegion, viewName, NavigationCallback);
+        }
+
+        private void NavigationCallback(NavigationResult result)
+        {
+            if (result.Result == true)
+            {
+                RaiseUpdateMenuEvent();
+            }
+        }
+
+        private void RaiseUpdateMenuEvent()
+        {
+            _ea.GetEvent<UpdateMenuEvent>().Publish();
         }
     }
 }

@@ -1,33 +1,41 @@
-﻿using Improve.Module.Plan.Models;
+﻿using Improve.Infrastructure.Events;
+using Improve.Module.Plan.Models;
+using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.DirectoryServices.ActiveDirectory;
-using System.Globalization;
-using System.Text;
-using System.Windows.Controls;
 
 namespace Improve.Module.Plan.ViewModels
 {
     public class CalendarViewModel : BindableBase
     {
-        public Week Week { get; }
-
-        public WeekSchedule WeekSchedule { get; set; }
-
-
-        public CalendarViewModel()
+        private IEventAggregator _ea;
+        private DelegateCommand _homeCmd;
+        public CalendarViewModel(IEventAggregator ea)
         {
             Week = new Week();
             WeekSchedule = new WeekSchedule();
             AddSampleData();
+            _ea = ea;
+            _ea.GetEvent<UpdateMenuEvent>().Subscribe(UpdateMenu_Handler);
         }
 
-        void AddSampleData()
+        public DelegateCommand HomeCmd =>
+            _homeCmd ?? (_homeCmd = new DelegateCommand(ExecuteHomeCmd));
+
+        public Week Week { get; }
+
+        public WeekSchedule WeekSchedule { get; set; }
+        private void AddSampleData()
         {
-            
         }
 
+        private void ExecuteHomeCmd()
+        {
+        }
+
+        private void UpdateMenu_Handler()
+        {
+            ;
+        }
     }
 }
