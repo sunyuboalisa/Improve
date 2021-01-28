@@ -1,4 +1,4 @@
-﻿using Improve.Infrastructure.Contants;
+﻿using Improve.Infrastructure.ViewNames;
 using Improve.Module.StudyRoom.Views;
 using Prism.Ioc;
 using Prism.Modularity;
@@ -16,7 +16,7 @@ namespace Improve.Module.StudyRoom
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<Room>(ViewNames.StudyRoom);
+            containerRegistry.RegisterForNavigation<Room>(StudyRoomViews.Home);
         }
     }
 }

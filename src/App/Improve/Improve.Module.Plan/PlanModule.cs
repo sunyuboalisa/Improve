@@ -1,4 +1,4 @@
-﻿using Improve.Infrastructure.Contants;
+﻿using Improve.Infrastructure.ViewNames;
 using Improve.Module.Plan.Views;
 using Prism.Ioc;
 using Prism.Modularity;
@@ -16,7 +16,8 @@ namespace Improve.Module.Plan
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<HomeView>(ViewNames.Plan);
+            containerRegistry.RegisterForNavigation<HomeView>(PlanViews.Home);
+            containerRegistry.RegisterForNavigation<Calendar>(PlanViews.Plan);
         }
     }
 }

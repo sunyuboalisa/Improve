@@ -6,6 +6,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:infra="clr-namespace:Improve.Infrastructure.Contants;assembly=Improve.Infrastructure"
+             xmlns:views="clr-namespace:Improve.Infrastructure.ViewNames;assembly=Improve.Infrastructure"
              mc:Ignorable="d"
              d:DesignHeight="500" d:DesignWidth="200"
              prism:ViewModelLocator.AutoWireViewModel="True">
@@ -27,19 +28,19 @@
                 
                 <StackPanel Orientation="Vertical"
                             Visibility="{Binding IsExpended,Converter={StaticResource BooleanToVisibilityConverter}}">
-                    <Button CommandParameter="{x:Static infra:ViewNames.StudyRoom}">
+                    <Button CommandParameter="{x:Static views:StudyRoomViews.Home}">
                         <iconPacks:PackIconBoxIcons
                             Height="35" Width="35"
                             Kind="RegularAlarm" />
                     </Button>
 
-                    <Button CommandParameter="{x:Static infra:ViewNames.Plan}">
+                    <Button CommandParameter="{x:Static views:PlanViews.Home}">
                         <iconPacks:PackIconBoxIcons
                             Height="35" Width="35"
                             Kind="RegularNotepad" />
                     </Button>
 
-                    <Button>
+                    <Button CommandParameter="{x:Static views:PlanViews.Plan}">
                         <iconPacks:PackIconBoxIcons
                             Height="35" Width="35"
                             Kind="RegularPaperPlane" />

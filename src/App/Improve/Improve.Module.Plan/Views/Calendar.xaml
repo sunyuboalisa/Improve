@@ -9,7 +9,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1200"
              prism:ViewModelLocator.AutoWireViewModel="True"
-             xmlns:controls="clr-namespace:Improve.Module.Plan.Controls">
+             xmlns:controls="clr-namespace:Improve.Module.Plan.Controls"
+             Loaded="UserControl_Loaded">
     <UserControl.DataContext>
         <vm:CalendarViewModel/>
     </UserControl.DataContext>
@@ -63,44 +64,65 @@
         <Border Grid.Column="7">
             <TextBlock Text="Saturday"/>
         </Border>
-        <!--Content background-->
-        <controls:BackgroundGrid Rows="24" Columns="8" 
-                                 Grid.Row="1" Grid.ColumnSpan="8"/>
-        <!--Hours of day-->
-        <UniformGrid Grid.Row="1"
-                     Rows="24">
-            <TextBlock Text="0"/>
-            <TextBlock Text="1"/>
-            <TextBlock Text="2"/>
-            <TextBlock Text="3"/>
-            <TextBlock Text="4"/>
-            <TextBlock Text="5"/>
-            <TextBlock Text="6"/>
-            <TextBlock Text="7"/>
-            <TextBlock Text="8"/>
-            <TextBlock Text="9"/>
-            <TextBlock Text="10"/>
-            <TextBlock Text="11"/>
-            <TextBlock Text="12"/>
-            <TextBlock Text="13"/>
-            <TextBlock Text="14"/>
-            <TextBlock Text="15"/>
-            <TextBlock Text="16"/>
-            <TextBlock Text="17"/>
-            <TextBlock Text="18"/>
-            <TextBlock Text="19"/>
-            <TextBlock Text="20"/>
-            <TextBlock Text="21"/>
-            <TextBlock Text="22"/>
-            <TextBlock Text="23"/>
-        </UniformGrid>
-        <!--WeekSchedule-->
-        <controls:DaySchedule Grid.Row="1" Grid.Column="1"/>
-        <controls:DaySchedule Grid.Row="1" Grid.Column="2"/>
-        <controls:DaySchedule Grid.Row="1" Grid.Column="3"/>
-        <controls:DaySchedule Grid.Row="1" Grid.Column="4"/>
-        <controls:DaySchedule Grid.Row="1" Grid.Column="5"/>
-        <controls:DaySchedule Grid.Row="1" Grid.Column="6"/>
-        <controls:DaySchedule Grid.Row="1" Grid.Column="7"/>
+        
+        <!--Content-->
+        <ScrollViewer Grid.Row="1" Grid.ColumnSpan="8"
+                      x:Name="slv_Content"
+                      VerticalScrollBarVisibility="Hidden"
+                      HorizontalScrollBarVisibility="Hidden"
+                      CanContentScroll="True">
+            <Grid Height="1180">
+                <!--Content background-->
+                <controls:BackgroundGrid Rows="24" Columns="8"/>
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--Hours of day-->
+                    <UniformGrid Rows="24">
+                        <TextBlock Text="0"/>
+                        <TextBlock Text="1"/>
+                        <TextBlock Text="2"/>
+                        <TextBlock Text="3"/>
+                        <TextBlock Text="4"/>
+                        <TextBlock Text="5"/>
+                        <TextBlock Text="6"/>
+                        <TextBlock Text="7"/>
+                        <TextBlock Text="8"/>
+                        <TextBlock Text="9"/>
+                        <TextBlock Text="10"/>
+                        <TextBlock Text="11"/>
+                        <TextBlock Text="12"/>
+                        <TextBlock Text="13"/>
+                        <TextBlock Text="14"/>
+                        <TextBlock Text="15"/>
+                        <TextBlock Text="16"/>
+                        <TextBlock Text="17"/>
+                        <TextBlock Text="18"/>
+                        <TextBlock Text="19"/>
+                        <TextBlock Text="20"/>
+                        <TextBlock Text="21"/>
+                        <TextBlock Text="22"/>
+                        <TextBlock Text="23"/>
+                    </UniformGrid>
+                    <!--WeekSchedule-->
+                    <controls:DaySchedule Grid.Column="1"/>
+                    <controls:DaySchedule Grid.Column="2"/>
+                    <controls:DaySchedule Grid.Column="3"/>
+                    <controls:DaySchedule Grid.Column="4"/>
+                    <controls:DaySchedule Grid.Column="5"/>
+                    <controls:DaySchedule Grid.Column="6"/>
+                    <controls:DaySchedule Grid.Column="7"/>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </UserControl>

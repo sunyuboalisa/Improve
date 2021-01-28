@@ -22,5 +22,10 @@ namespace Improve.Module.Plan.Views
         {
             InitializeComponent();
         }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            slv_Content.ScrollToVerticalOffset(300);
+        }
     }
 }
