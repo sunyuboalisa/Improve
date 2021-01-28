@@ -1,4 +1,6 @@
-﻿using Improve.LoggerLib;
+﻿using Improve.CompositeCommands.Core;
+using Improve.CompositeCommands.Core.Interfaces;
+using Improve.LoggerLib;
 using Improve.Views;
 using Prism.Ioc;
 using Prism.Modularity;
@@ -28,7 +30,7 @@ namespace Improve
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            //throw new NotImplementedException();
+            containerRegistry.RegisterSingleton<IApplicationCommands, ApplicationCommands>();
         }
 
         protected override IModuleCatalog CreateModuleCatalog()

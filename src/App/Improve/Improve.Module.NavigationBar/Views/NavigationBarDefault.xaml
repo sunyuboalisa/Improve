@@ -29,9 +29,9 @@
                 <StackPanel Orientation="Vertical"
                             Visibility="{Binding IsExpended,Converter={StaticResource BooleanToVisibilityConverter}}">
                     <Button CommandParameter="{x:Static views:StudyRoomViews.Home}">
-                        <iconPacks:PackIconBoxIcons
+                        <iconPacks:PackIconForkAwesome
                             Height="35" Width="35"
-                            Kind="RegularAlarm" />
+                            Kind="GraduationCap" />
                     </Button>
 
                     <Button CommandParameter="{x:Static views:PlanViews.Home}">
@@ -40,17 +40,24 @@
                             Kind="RegularNotepad" />
                     </Button>
 
-                    <Button CommandParameter="{x:Static views:PlanViews.Plan}">
-                        <iconPacks:PackIconBoxIcons
+                    <Button CommandParameter="{x:Static views:SettingsViews.Home}">
+                        <iconPacks:PackIconForkAwesome
                             Height="35" Width="35"
-                            Kind="RegularPaperPlane" />
+                            Kind="Cog" />
+                    </Button>
+                    
+                    <Button Command="{Binding ApplicationCommands.AddPlan}"
+                            Visibility="{Binding IsEnabled,RelativeSource={RelativeSource Mode=Self},Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <iconPacks:PackIconForkAwesome
+                            Height="35" Width="35"
+                            Kind="Plus"/>
                     </Button>
 
-                    <Button>
+                    <!--<Button>
                         <iconPacks:PackIconBoxIcons
                             Height="35" Width="35"
                             Kind="RegularArrowFromBottom" />
-                    </Button>
+                    </Button>-->
                 </StackPanel>
 
                 <Button Command="{Binding ExpendMenuCmd}">

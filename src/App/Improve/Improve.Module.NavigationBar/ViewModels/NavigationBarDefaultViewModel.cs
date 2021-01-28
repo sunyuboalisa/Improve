@@ -1,9 +1,12 @@
-﻿using Improve.Infrastructure.Contants;
+﻿using Improve.CompositeCommands.Core.Interfaces;
+using Improve.Infrastructure.Contants;
 using Improve.Infrastructure.Events;
+using Prism;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
 using Prism.Regions;
+using System;
 
 namespace Improve.Module.NavigationBar.ViewModels
 {
@@ -16,10 +19,21 @@ namespace Improve.Module.NavigationBar.ViewModels
         private bool _isVisibled;
         private DelegateCommand<string> _navigate;
 
-        public NavigationBarDefaultViewModel(IRegionManager manager, IEventAggregator ea)
+        public NavigationBarDefaultViewModel(IRegionManager manager, IEventAggregator ea,IApplicationCommands applicationCommands)
         {
             _regionManager = manager;
             _ea = ea;
+            _applicationCommands = applicationCommands;
+        }
+
+        private IApplicationCommands _applicationCommands;
+
+       
+
+        public IApplicationCommands ApplicationCommands
+        {
+            get { return _applicationCommands; }
+            set { SetProperty(ref _applicationCommands, value); }
         }
 
         public DelegateCommand ExpendMenuCmd =>
@@ -40,6 +54,7 @@ namespace Improve.Module.NavigationBar.ViewModels
         public DelegateCommand<string> Navigate =>
             _navigate ?? (_navigate = new DelegateCommand<string>(ExecuteNavigate));
 
+       
         private void ExecuteExpendMenuCmd()
         {
             IsExpended = IsExpended ? false : true;
@@ -54,13 +69,13 @@ namespace Improve.Module.NavigationBar.ViewModels
         {
             if (result.Result == true)
             {
-                RaiseUpdateMenuEvent();
+                RaiseUpdateMenuEvent(result);
             }
         }
 
-        private void RaiseUpdateMenuEvent()
+        private void RaiseUpdateMenuEvent(NavigationResult result)
         {
-            _ea.GetEvent<UpdateMenuEvent>().Publish();
+            _ea.GetEvent<UpdateMenuEvent>().Publish(result);
         }
     }
 }

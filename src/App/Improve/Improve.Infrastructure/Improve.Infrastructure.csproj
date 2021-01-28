@@ -8,6 +8,7 @@
     <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Improve.CompositeCommands.Core\Improve.CompositeCommands.Core.csproj" />
     <ProjectReference Include="..\Improve.LoggerLib\Improve.LoggerLib.csproj" />
   </ItemGroup>
 </Project>

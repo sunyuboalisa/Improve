@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelToResourceDicTool", "E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Improve.Module.Plan", "Improve.Module.Plan\Improve.Module.Plan.csproj", "{B64E41BE-926C-4168-8079-99E38FF55C16}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Improve.CompositeCommands.Core", "Improve.CompositeCommands.Core\Improve.CompositeCommands.Core.csproj", "{FD5AFCC2-7AE3-4214-8C63-4ED2E36B2844}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{B64E41BE-926C-4168-8079-99E38FF55C16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B64E41BE-926C-4168-8079-99E38FF55C16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B64E41BE-926C-4168-8079-99E38FF55C16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD5AFCC2-7AE3-4214-8C63-4ED2E36B2844}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD5AFCC2-7AE3-4214-8C63-4ED2E36B2844}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD5AFCC2-7AE3-4214-8C63-4ED2E36B2844}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD5AFCC2-7AE3-4214-8C63-4ED2E36B2844}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,6 +101,7 @@ Global
 		{CBECE1BB-5030-445C-AF3F-754D2C6ED056} = {C7D55DE8-6ADA-4EE4-B71F-E1C9E29863F2}
 		{442264EA-1FE3-46E6-B42A-ED8BA5E84430} = {DC9FB9B7-00E6-4BD1-80E7-74D4B345A2CD}
 		{B64E41BE-926C-4168-8079-99E38FF55C16} = {783ED2E3-B352-46F1-B2B2-49020EE9892D}
+		{FD5AFCC2-7AE3-4214-8C63-4ED2E36B2844} = {C7D55DE8-6ADA-4EE4-B71F-E1C9E29863F2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34CAAD8C-309C-4849-994E-AEC3075135CA}

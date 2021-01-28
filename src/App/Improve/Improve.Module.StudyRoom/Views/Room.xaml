@@ -106,7 +106,7 @@
             <ContentPresenter Content="{Binding ContentView}" Visibility="{Binding ContentPanelVisible,Converter={StaticResource BooleanToVisibilityConverter}}"/>
         </WrapPanel>
         <Grid Grid.Row="1">
-            <Controls:Flyout x:Name="flyMenu" IsOpen="True"
+            <Controls:Flyout x:Name="flyMenu" IsOpen="False"
                              Background="#FF30323A"
                              CloseButtonVisibility="Collapsed"
                              Position="Bottom">
